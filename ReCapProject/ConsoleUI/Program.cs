@@ -1,9 +1,9 @@
 ﻿using Business.Concrete;
-using DataAccess.Concrete;
+using DataAccess.Concrete.EntityFramework;
+using Entities.Concrete;
 
-CarManager carManager = new CarManager(new InMemoryCarDal());
+CarManager carManager = new CarManager(new EfCarDal());
 
-foreach (var car in carManager.GetAll())
-{
-    Console.WriteLine(car.Decription + " " + car.DailyPrice);
-}
+carManager.Add(new Car { BrandId = 2, ColorId = 1, DailyPrice = 300, Description = "Toggg 2023", ModelYear = 2023 });
+
+

@@ -13,3 +13,20 @@ E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.dll
 E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\bin\Debug\net6.0\Entities.dll
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\bin\Debug\net6.0\Entities.pdb
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
+C:\Users\Jack\Documents\GitHub\ReCapProject\ReCapProject\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
