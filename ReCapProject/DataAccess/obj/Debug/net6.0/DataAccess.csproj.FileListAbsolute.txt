@@ -1,0 +1,15 @@
+E:\Full Stack\Backend\ReCapProject\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+E:\Full Stack\Backend\ReCapProject\DataAccess\bin\Debug\net6.0\DataAccess.dll
+E:\Full Stack\Backend\ReCapProject\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+E:\Full Stack\Backend\ReCapProject\DataAccess\bin\Debug\net6.0\Entities.dll
+E:\Full Stack\Backend\ReCapProject\DataAccess\bin\Debug\net6.0\Entities.pdb
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.dll
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+E:\Full Stack\Backend\ReCapProject\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
