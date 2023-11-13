@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "UmbracoCms.Core": {
+              "target": "Package",
+              "version": "[8.18.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

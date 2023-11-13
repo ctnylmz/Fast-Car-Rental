@@ -783,14 +783,30 @@
           }
         }
       },
-      "Entities/1.0.0": {
+      "Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
+        },
         "compile": {
-          "bin/placeholder/Entities.dll": {}
+          "bin/placeholder/Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Entities.dll": {}
+          "bin/placeholder/Core.dll": {}
+        }
+      },
+      "Entites/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Entites.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entites.dll": {}
         }
       }
     }
@@ -2014,15 +2030,21 @@
         "version.txt"
       ]
     },
-    "Entities/1.0.0": {
+    "Core/1.0.0": {
       "type": "project",
-      "path": "../Entities/Entities.csproj",
-      "msbuildProject": "../Entities/Entities.csproj"
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
+    "Entites/1.0.0": {
+      "type": "project",
+      "path": "../Entites1/Entites.csproj",
+      "msbuildProject": "../Entites1/Entites.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Entities >= 1.0.0",
+      "Core >= 1.0.0",
+      "Entites >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.24",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.24",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.24"
@@ -2055,8 +2077,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Entities\\Entities.csproj"
+            "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Core\\Core.csproj"
+            },
+            "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Entites1\\Entites.csproj": {
+              "projectPath": "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Entites1\\Entites.csproj"
             }
           }
         }

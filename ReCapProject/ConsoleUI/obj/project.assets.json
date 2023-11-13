@@ -776,7 +776,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "DataAccess": "1.0.0",
-          "Entities": "1.0.0"
+          "Entites": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Business.dll": {}
@@ -785,11 +785,25 @@
           "bin/placeholder/Business.dll": {}
         }
       },
+      "Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
+        },
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
       "DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Entities": "1.0.0",
+          "Core": "1.0.0",
+          "Entites": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.24",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
         },
@@ -800,14 +814,17 @@
           "bin/placeholder/DataAccess.dll": {}
         }
       },
-      "Entities/1.0.0": {
+      "Entites/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
         "compile": {
-          "bin/placeholder/Entities.dll": {}
+          "bin/placeholder/Entites.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Entities.dll": {}
+          "bin/placeholder/Entites.dll": {}
         }
       }
     }
@@ -2011,22 +2028,28 @@
       "path": "../Business/Business.csproj",
       "msbuildProject": "../Business/Business.csproj"
     },
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
     "DataAccess/1.0.0": {
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
     },
-    "Entities/1.0.0": {
+    "Entites/1.0.0": {
       "type": "project",
-      "path": "../Entities/Entities.csproj",
-      "msbuildProject": "../Entities/Entities.csproj"
+      "path": "../Entites1/Entites.csproj",
+      "msbuildProject": "../Entites1/Entites.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Business >= 1.0.0",
+      "Core >= 1.0.0",
       "DataAccess >= 1.0.0",
-      "Entities >= 1.0.0",
+      "Entites >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.24"
     ]
   },
@@ -2060,11 +2083,14 @@
             "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Business\\Business.csproj": {
               "projectPath": "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Business\\Business.csproj"
             },
+            "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Core\\Core.csproj"
+            },
             "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\DataAccess\\DataAccess.csproj": {
               "projectPath": "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Entities\\Entities.csproj"
+            "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Entites1\\Entites.csproj": {
+              "projectPath": "C:\\Users\\Jack\\Documents\\GitHub\\ReCapProject\\ReCapProject\\Entites1\\Entites.csproj"
             }
           }
         }

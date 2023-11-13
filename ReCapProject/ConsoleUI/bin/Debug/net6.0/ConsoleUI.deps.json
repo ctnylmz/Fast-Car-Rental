@@ -9,8 +9,9 @@
       "ConsoleUI/1.0.0": {
         "dependencies": {
           "Business": "1.0.0",
+          "Core": "1.0.0",
           "DataAccess": "1.0.0",
-          "Entities": "1.0.0",
+          "Entites": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "6.0.24"
         },
         "runtime": {
@@ -488,15 +489,24 @@
       "Business/1.0.0": {
         "dependencies": {
           "DataAccess": "1.0.0",
-          "Entities": "1.0.0"
+          "Entites": "1.0.0"
         },
         "runtime": {
           "Business.dll": {}
         }
       },
+      "Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
+        },
+        "runtime": {
+          "Core.dll": {}
+        }
+      },
       "DataAccess/1.0.0": {
         "dependencies": {
-          "Entities": "1.0.0",
+          "Core": "1.0.0",
+          "Entites": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.24",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
         },
@@ -504,9 +514,12 @@
           "DataAccess.dll": {}
         }
       },
-      "Entities/1.0.0": {
+      "Entites/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0"
+        },
         "runtime": {
-          "Entities.dll": {}
+          "Entites.dll": {}
         }
       }
     }
@@ -816,12 +829,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "DataAccess/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Entities/1.0.0": {
+    "Entites/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

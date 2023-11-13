@@ -1,4 +1,5 @@
 ﻿using DataAccess.Abstract;
+using Entites.DTOs;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,11 @@ namespace DataAccess.Concrete.InMemory
             Car car = _cars.Find(x => x.Id == Id);
             Console.WriteLine(car.Description);
 
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)

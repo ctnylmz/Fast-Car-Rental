@@ -10,4 +10,8 @@
     <None Remove="Concrete\Car.cs~RFaaaef2.TMP" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="UmbracoCms.Core" Version="8.18.9" />
+  </ItemGroup>
+
 </Project>

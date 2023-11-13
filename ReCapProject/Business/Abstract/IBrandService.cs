@@ -10,5 +10,7 @@ namespace Business.Abstract
     public interface IBrandService
     {
         List<Brand> GetCarsByColorId(int id);
+        void Add(Brand brand);
+
     }
 }
