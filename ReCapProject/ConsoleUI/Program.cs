@@ -8,8 +8,8 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        BrandAdd();
-        ProductTest();
+
+        Add();
 
 
     }
@@ -17,7 +17,7 @@ public class Program
     {
         CarManager carManager = new CarManager(new EfCarDal());
 
-        carManager.Add(new Car { BrandId = 2, ColorId = 1, DailyPrice = 300, Description = "Ford Bezinli", ModelYear = 2020 });
+        carManager.Add(new Car { BrandId = 2, ColorId = 2, DailyPrice = 2000, Description = "Clio Benzin Manuel", ModelYear = 2015 });
     }
 
     private static void BrandAdd()
