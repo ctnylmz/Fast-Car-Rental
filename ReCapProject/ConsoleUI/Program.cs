@@ -32,11 +32,39 @@ public class Program
         }
     }
 
-    private static void BrandAdd()
+    private static void CreateCustomer()
     {
-        BrandManager brandManager = new BrandManager(new EfBrandDal());
+        CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
 
-        brandManager.Add(new Brand { Name = "Ford" });
+        customerManager.Add(new Customer
+        {
+            UserId = 1,
+            CompanyName = "Kiraz Soft",
+        });
+    }
+
+    private static void CarAdd()
+    {
+        CarManager carManager = new CarManager(new EfCarDal());
+
+
+        var result = carManager.Add(new Car
+        {
+            BrandId = 1,
+            ColorId = 1,
+            ModelYear = 2018,
+            DailyPrice = 2700,
+            Description = "Audi A4 , Otomatik , Dizel"
+        });
+
+        if (result.Success)
+        {
+            Console.WriteLine(result.Message);
+        }
+        else
+        {
+            Console.WriteLine(result.Message);
+        }
     }
 
     private static void CarGetAll()
