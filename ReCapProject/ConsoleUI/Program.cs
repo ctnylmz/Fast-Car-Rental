@@ -8,33 +8,41 @@ public class Program
 {
     public static void Main(string[] args)
     {
-
-        Add();
-
-
+        CarGetAll();
     }
     private static void Add()
     {
         CarManager carManager = new CarManager(new EfCarDal());
 
-        carManager.Add(new Car { BrandId = 2, ColorId = 2, DailyPrice = 2000, Description = "Clio Benzin Manuel", ModelYear = 2015 });
+        carManager.Add(new Car { BrandId = 3, ColorId = 1, DailyPrice = 4500, Description = "Ford Tourneo Courier 1.5 Benzinli", ModelYear = 2023 });
     }
 
     private static void BrandAdd()
     {
         BrandManager brandManager = new BrandManager(new EfBrandDal());
 
-        brandManager.Add(new Brand { Name = "Mersedes" });
+        brandManager.Add(new Brand { Name = "Ford" });
     }
 
-    private static void ProductTest()
+    private static void CarGetAll()
     {
         CarManager carManager = new CarManager(new EfCarDal());
 
-        foreach (var car in carManager.GetCarDetails())
+        var result = carManager.GetCarDetails();
+
+        if (result.Success)
         {
-            Console.WriteLine(car.CarName + "/" + car.BrandName);
+            foreach (var item in result.Data)
+            {
+                Console.WriteLine(item.CarName + " - " + item.BrandName);
+            }
         }
+        else
+        {
+            Console.WriteLine("Hata");
+
+        }
+
 
     }
 }

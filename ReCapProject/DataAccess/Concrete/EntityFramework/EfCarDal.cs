@@ -20,7 +20,7 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from c in context.Cars
                              join b in context.Brands
-                             on c.Id equals b.Id
+                             on c.BrandId equals b.Id
                              select new CarDetailDto
                              {
                                  CarId = c.Id,
