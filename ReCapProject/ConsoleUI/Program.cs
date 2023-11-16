@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using Entites.Concrete;
 using Entities.Concrete;
 
 
@@ -8,13 +9,27 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        CarGetAll();
+        CreateUser();
     }
-    private static void Add()
+    private static void CreateUser()
     {
-        CarManager carManager = new CarManager(new EfCarDal());
+        UserManager userManager = new UserManager(new EfUserDal());
 
-        carManager.Add(new Car { BrandId = 3, ColorId = 1, DailyPrice = 4500, Description = "Ford Tourneo Courier 1.5 Benzinli", ModelYear = 2023 });
+        var result = userManager.Add(new User
+        {
+            FirstName = "Çetin",
+            LastName = "Yılmaz",
+            Email = "cetin@gmail.com",
+            Password = "123456",
+        });
+        if (result.Success)
+        {
+            Console.WriteLine(result.Message);
+        }
+        else
+        {
+            Console.WriteLine(result.Message);
+        }
     }
 
     private static void BrandAdd()

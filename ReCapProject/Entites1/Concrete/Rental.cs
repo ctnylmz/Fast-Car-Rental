@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Entites.Concrete
 {
-    public class Rentals : IEntity
+    public class Rental : IEntity
     {
         public int Id { get; set; }
         public Car carId { get; set; }
-        public Customers CustomerId { get; set; }
+        public Customer CustomerId { get; set; }
         public DateTime RentDate { get; set; }
         public DateTime ReturnDate { get; set; }
     }

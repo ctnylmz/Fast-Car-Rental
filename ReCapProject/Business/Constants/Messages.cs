@@ -10,5 +10,8 @@ namespace Business.Constants
     {
         public static string CarNameInvalid = "Ürün İsmi 10 Karakterden Az Olmaz";
         public static string CarAdded = "Ürün Eklendi";
+      
+        public static string UserAdded = "Kullanıcı Eklendi";
+        public static string UserPasswordInvalid = "Şifre En Az 5 Karakter Olmalı";
     }
 }
