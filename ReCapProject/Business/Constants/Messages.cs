@@ -14,7 +14,11 @@ namespace Business.Constants
         public static string UserAdded = "Kullanıcı Eklendi";
         public static string UserPasswordInvalid = "Şifre En Az 5 Karakter Olmalı";
 
-        public static string CustomerAdded = "Kullanıcı Eklendi";
+        public static string CustomerAdded = "Araba Kiralandı";
+
+        public static string RentalAdded = "Araba Kiralandı";
+        public static string RentalInvalid = "Araba Teslim Edilmedi Lütfen Farklı Bir Araba Seçiniz";
+
 
     }
 }

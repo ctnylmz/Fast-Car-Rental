@@ -9,7 +9,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        CreateUser();
+        CreateRental();
     }
     private static void CreateUser()
     {
@@ -43,28 +43,27 @@ public class Program
         });
     }
 
-    private static void CarAdd()
+    private static void CreateRental()
     {
-        CarManager carManager = new CarManager(new EfCarDal());
+        RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
-
-        var result = carManager.Add(new Car
+        var result = rentalManager.Add(new Rental
         {
-            BrandId = 1,
-            ColorId = 1,
-            ModelYear = 2018,
-            DailyPrice = 2700,
-            Description = "Audi A4 , Otomatik , Dizel"
+            CarId = 2,
+            CustomerId = 2,
+            RentDate = DateTime.Now,
         });
 
         if (result.Success)
         {
-            Console.WriteLine(result.Message);
+             Console.WriteLine(result.Message);
         }
         else
         {
             Console.WriteLine(result.Message);
+
         }
+
     }
 
     private static void CarGetAll()
