@@ -29,6 +29,7 @@ namespace Business.Concrete
             _brandService = brandService;
         }
 
+        [SecuredOperation("Admin,Editor,Product.Add")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
