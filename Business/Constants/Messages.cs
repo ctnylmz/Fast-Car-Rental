@@ -2,18 +2,21 @@
 {
     public static class Messages
     {
-        public static string CarNameInvalid = "Araç ismi en az 3 harfli olmalıdır, Araç Eklenemedi";
         public static string CarAdded = "Araç başarı ile eklendi";
         public static string CarUpdated = "Araç başarı ile güncellendi";
         public static string CarDeleted = "Araç başarı ile silindi";
         public static string CarsListed = "Araçlar listelendi";
         public static string CarListed = "Araç listelendi";
-        public static string MaintenanceTime = "Sistem Bakımda";
+
+        public static string CarNameInvalid = "Araç ismi en az 3 harfli olmalıdır, Araç Eklenemedi";
         public static string CarIdInvalid = "Araç id hatalı.";
+        public static string CarNameAlreadyExists = "Araç adı mevcuttur, başka bir araç adı girmeyi deneyiniz.";
         public static string ModelNameInvalid = "Araç modeli hatalı.";
         public static string ColorIdInvalid = "Araç renk id hatalı.";
         public static string ColorNameInvalid = "Araç renk adı hatalı.";
         public static string BrandIdInvalid = "Araç model id hatalı.";
+
+       
 
         public static string ColorAdded = "Renk başarı ile eklendi";
         public static string ColorUpdated = "Renk başarı ile güncellendi";
@@ -56,6 +59,5 @@
         public static string RentalInvalid = "Araç mevcut değil, kiralama başarısız";
         public static string RentalAlreadyExists = "Kampanya mevcuttur, başka bir kampanya girmeyi deneyiniz.";
 
-        public static string CarNameAlreadyExists = "Araç adı mevcuttur, başka bir araç adı girmeyi deneyiniz.";
     }
 }
