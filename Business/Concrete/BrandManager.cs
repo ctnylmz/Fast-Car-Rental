@@ -6,7 +6,7 @@ using Core.CrossCuttingConcerns.Validation;
 using Core.CrossCuttingConcerns.Validation.FluentValidation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities;
+using Entities.Concrete;
 using FluentValidation;
 using System.ComponentModel.DataAnnotations;
 

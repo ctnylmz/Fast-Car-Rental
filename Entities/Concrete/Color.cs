@@ -1,17 +1,15 @@
 ﻿using Core.Entities.Abstract;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Entities.Concrete
 {
-    internal class Customer : IEntity
+    public class Color : IEntity
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public string CompanyName { get; set; }
+        public string Name { get; set; }
     }
 }

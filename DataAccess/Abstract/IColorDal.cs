@@ -1,5 +1,5 @@
 ﻿using Core.DataAccess.Abstract;
-using Entities;
+using Entities.Concrete;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
