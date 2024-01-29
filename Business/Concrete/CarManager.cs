@@ -2,6 +2,7 @@
 using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
@@ -57,11 +58,13 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
+        [CacheAspect]
         public IDataResult<Car> GetById(int Id)
         {
             return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == Id), Messages.CarListed);
         }
 
+        [CacheAspect]
         public IDataResult<List<Car>> GetList()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetList().ToList(), Messages.CarsListed);

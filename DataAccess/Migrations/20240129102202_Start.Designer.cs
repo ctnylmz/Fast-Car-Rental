@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(FastCarRentalContext))]
-    [Migration("20240129074122_StartFastCarRental")]
-    partial class StartFastCarRental
+    [Migration("20240129102202_Start")]
+    partial class Start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -127,8 +127,8 @@ namespace DataAccess.Migrations
                     b.Property<int>("ColordId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("DailyPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("DailyPrice")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()

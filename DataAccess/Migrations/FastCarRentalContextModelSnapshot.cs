@@ -125,8 +125,8 @@ namespace DataAccess.Migrations
                     b.Property<int>("ColordId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("DailyPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("DailyPrice")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
