@@ -1,5 +1,4 @@
 ﻿using Core.Entities.Concrete;
-using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +9,6 @@ namespace Core.Utilities.Security.JWT
 {
     public interface ITokenHelper
     {
-        AccessToken CreateToken(User user , List<OperationClaim> operationClaims);
+        AccessToken CreateToken(User user, List<OperationClaim> operationClaims);
     }
 }

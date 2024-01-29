@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using Business.BusinessAspects.Autofac;
+using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -30,13 +30,13 @@ namespace Business.Concrete
             _brandService = brandService;
         }
 
-        [SecuredOperation("Product.Add,Admin")]
+        [SecuredOperation("admin,product.add")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
             IResult result = BusinessRules.Run(
-                           CheckIfProductCountCategoryCorrect(car.BrandId),
-                           CheckIfProductName(car.Name),
+                           CheckIfCarCountCategoryCorrect(car.BrandId),
+                           CheckIfCarName(car.Name),
                            CheckIfBrandLimitExceded()
                            );
 
@@ -45,7 +45,9 @@ namespace Business.Concrete
                 return result;
             }
 
-            return new ErrorResult();
+
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
         }
 
         public IResult Delete(Car car)
@@ -69,8 +71,8 @@ namespace Business.Concrete
         public IResult Update(Car car)
         {
             IResult result = BusinessRules.Run(
-                  CheckIfProductCountCategoryCorrect(car.BrandId),
-                  CheckIfProductName(car.Name),
+                  CheckIfCarCountCategoryCorrect(car.BrandId),
+                  CheckIfCarName(car.Name),
                   CheckIfBrandLimitExceded()
                   );
 
@@ -84,7 +86,7 @@ namespace Business.Concrete
         }
 
 
-        private IResult CheckIfProductCountCategoryCorrect(int brandId)
+        private IResult CheckIfCarCountCategoryCorrect(int brandId)
         {
             var result = _carDal.GetList(c => c.BrandId == brandId).Count;
 
@@ -96,7 +98,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        private IResult CheckIfProductName(string Name)
+        private IResult CheckIfCarName(string Name)
         {
             var result = _carDal.GetList(c => c.Name == Name).Any();
 

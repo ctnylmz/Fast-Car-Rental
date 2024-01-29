@@ -8,7 +8,6 @@ using Core.Entities.Concrete;
 using Core.Extensions;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
-using Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -46,13 +45,13 @@ namespace Core.Utilities.Security.Jwt
             SigningCredentials signingCredentials, List<OperationClaim> operationClaims)
         {
             var jwt = new JwtSecurityToken(
-                issuer: tokenOptions.Issuer,
-                audience: tokenOptions.Audience,
-                expires: _accessTokenExpiration,
-                notBefore: DateTime.Now,
-                claims: SetClaims(user, operationClaims),
-                signingCredentials: signingCredentials
-            );
+        issuer: tokenOptions.Issuer,
+        audience: tokenOptions.Audience,
+        expires: _accessTokenExpiration,
+        notBefore: DateTime.UtcNow,
+        claims: SetClaims(user, operationClaims),
+        signingCredentials: signingCredentials
+    );
             return jwt;
         }
 

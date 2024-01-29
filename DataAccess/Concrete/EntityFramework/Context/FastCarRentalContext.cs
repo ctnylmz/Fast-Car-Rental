@@ -1,5 +1,4 @@
 ﻿using Core.Entities.Concrete;
-using Entities;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-UDO4HAR\\SQLEXPRESS;database=FastCarRentalDB;integrated security=true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-HK3Q21E\\SQLEXPRESS;database=FastCarRentalDB;integrated security=true");
         }
 
         public DbSet<Car> Cars { get; set; }

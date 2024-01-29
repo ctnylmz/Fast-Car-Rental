@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Business.Abstract;
+﻿using Business.Abstract;
 using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
-using Core.Utilities.Security.Jwt;
 using Core.Utilities.Security.JWT;
-using Entities;
 using Entities.DTOs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -38,7 +38,7 @@ namespace Business.Concrete
                 Status = true
             };
             _userService.Add(user);
-            return new SuccessDataResult<User>(user, Messages.UserRegistered);
+            return new SuccessDataResult<User>(user, "Kayıt Oldu");
         }
 
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
@@ -48,20 +48,19 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<User>(Messages.UserNotFound);
             }
-
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
             {
                 return new ErrorDataResult<User>(Messages.PasswordError);
             }
 
-            return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
+            return new SuccessDataResult<User>(userToCheck, "Başarılı Giriş");
         }
 
         public IResult UserExists(string email)
         {
             if (_userService.GetByMail(email) != null)
             {
-                return new ErrorResult(Messages.UserAlreadyExists);
+                return new ErrorResult("Kullanıcı mevcuttur");
             }
             return new SuccessResult();
         }

@@ -16,7 +16,7 @@
         public static string ColorNameInvalid = "Araç renk adı hatalı.";
         public static string BrandIdInvalid = "Araç model id hatalı.";
 
-       
+
 
         public static string ColorAdded = "Renk başarı ile eklendi";
         public static string ColorUpdated = "Renk başarı ile güncellendi";
