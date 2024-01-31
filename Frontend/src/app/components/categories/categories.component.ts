@@ -11,8 +11,8 @@ export class CategoriesComponent {
   categorys: Category[] = [];
 
   currentCategory: Category = {
-    id: 1,
-    name: 'BMW',
+    id: 0,
+    name: '',
   };
 
   constructor(private categoryService: CategoryService) {}
@@ -38,4 +38,6 @@ export class CategoriesComponent {
       return 'list-group-item p-3 ';
     }
   }
+
+ 
 }

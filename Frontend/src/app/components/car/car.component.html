@@ -1,3 +1,11 @@
+<div class="mb-3">
+  <label for="formGroupExampleInput" class="form-label">Serach Car</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="formGroupExampleInput" >
+</div>
+<div>
+  {{filterText}}
+</div>
+
 <table class="table table-striped table-hover">
   
   <thead>
@@ -6,18 +14,23 @@
       <th scope="col">Name</th>
       <th scope="col">Year</th>
       <th scope="col">Price</th>
+      <th scope="col">Kdv</th>
       <th scope="col">Description</th>
+      <th></th>
+      
     </tr>
   </thead>
 
 
   <tbody>
-    <tr *ngFor="let car of cars">
+    <tr *ngFor="let car of cars |filterPipe:filterText">
       <td>{{ car.id }}</td>
-      <td>{{ car.name }}</td>
+      <td>{{ car.name |uppercase}}</td>
       <td>{{ car.modelYear }}</td>
-      <td>{{ car.dailyPrice }}</td>
+      <td>{{ car.dailyPrice  |currency}}</td>
+      <td>{{ car.dailyPrice |vatadded:20   |currency}}</td>
       <td>{{ car.description }}</td>
+      <td><button (click)="addToCart(car)" class="btn btn-success">Buy</button></td>
     </tr>
   </tbody>
   
