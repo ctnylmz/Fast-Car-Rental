@@ -1,9 +1,11 @@
-
-
-        <div style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); background-color: rgb(218, 218, 218);" id="sidebar">
-          <ul class="list-group min-vh-100">
-            <li class="list-group-item p-3 active" aria-current="true" >Category</li>
-            <li class="list-group-item p-3 " *ngFor="let category of categorys">{{category.name}}</li>
-    
-          </ul>
-    </div>
+<div style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1)" id="sidebar" class="border">
+  <ul class="list-group min-vh-100">
+    <li class="list-group-item p-3" aria-current="true" style="background-color: black; color: white">
+      Category
+    </li>
+    <li routerLink="/cars/category/{{category.id}}" [class]="getCurrentCategoryClass(category)" (click)="setCurrentCategory(category)"
+      *ngFor="let category of categorys">
+      {{ category.name }}
+    </li>
+  </ul>
+</div>

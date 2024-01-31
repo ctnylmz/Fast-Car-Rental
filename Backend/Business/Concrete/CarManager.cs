@@ -128,6 +128,9 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-
+        public DataResult<List<Car>> GetAllByCategoryId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetList(c => c.BrandId == id).ToList());
+        }
     }
 }
