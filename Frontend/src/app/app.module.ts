@@ -13,7 +13,8 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { VataddedPipe } from './pipes/vatadded.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
-import { ToastrModule } from 'ngx-toastr'; 
+import { ToastrModule } from 'ngx-toastr';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component'; 
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
     NaviComponent,
     CategoriesComponent,
     VataddedPipe,
-    FilterPipePipe
+    FilterPipePipe,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,

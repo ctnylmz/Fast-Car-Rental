@@ -11,6 +11,8 @@ export class CategoryService {
 
   apiUrl = 'https://localhost:7199';
 
+
+
   constructor(private httpClient: HttpClient) {}
 
   getCategories():Observable<ListResponseModel<Category>> {
