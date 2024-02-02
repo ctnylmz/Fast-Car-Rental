@@ -1,0 +1,49 @@
+<div class="content">
+    <div class="col-md-9 m-auto">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Add Car</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                   
+                    <div class="form-group mb-3">
+                        <label for="brandId" class="form-label">Brand Id</label>
+                        <input type="number" class="form-control" id="brandId" formControlName="brandId"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="colordId" class="form-label">Colord Id</label>
+                        <input type="number" class="form-control" id="colordId" formControlName="colordId"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="Name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="Name" formControlName="name"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="modelYear" class="form-label">Model Year</label>
+                        <input type="text" class="form-control" id="modelYear" formControlName="modelYear"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="dailyPrice" class="form-label">Daily Price</label>
+                        <input type="number" class="form-control" id="dailyPrice" formControlName="dailyPrice"/>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="description" formControlName="description"/>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a  routerLink="/" class="btn btn-danger mt-3 w-25">Cancel</a>
+                        <button type="submit" class="btn btn-primary mt-3 w-25" (click)="add()">Submit</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

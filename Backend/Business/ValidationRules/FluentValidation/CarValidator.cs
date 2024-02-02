@@ -15,6 +15,8 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(c => c.Name).MinimumLength(3).WithMessage("En az 2 Harf Olmalı!");
             RuleFor(c => c.Name).NotEmpty();
 
+            RuleFor(c => c.DailyPrice).GreaterThan(0).WithMessage("Sıfırdan Farklı Olmalıdır Fiyatı");
+
 
         }
     }
