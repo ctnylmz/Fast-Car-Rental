@@ -45,14 +45,15 @@ export class CarAddComponent implements OnInit {
           this.toastrService.success('Create Car', 'Success');
         },
         (dataError) => {
-          if (dataError.error.Errors.length > 0) {
+          console.log(dataError.error.message)
+          if (dataError.error.Errors.length > 1) {
             for (let i = 0; i < dataError.error.Errors.length; i++) {
               this.toastrService.error(
                 dataError.error.Errors[i].ErrorMessage,
                 'Error'
               );
             }
-          }
+          } 
         }
       );
     } else {

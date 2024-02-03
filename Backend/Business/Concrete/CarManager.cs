@@ -31,7 +31,7 @@ namespace Business.Concrete
             _brandService = brandService;
         }
 
-        //[SecuredOperation("admin,car.add")]
+        [SecuredOperation("admin,car.add")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("ICarService.Get")]
 
@@ -96,9 +96,9 @@ namespace Business.Concrete
         {
             var result = _carDal.GetList(c => c.BrandId == brandId).Count;
 
-            if (result >= 2)
+            if (result >= 3)
             {
-                return new ErrorResult("Bir Kategoride En Fazla 2 Ürün Olabilir");
+                return new ErrorResult("Bir Kategoride En Fazla 3 Ürün Olabilir");
             }
 
             return new SuccessResult();
