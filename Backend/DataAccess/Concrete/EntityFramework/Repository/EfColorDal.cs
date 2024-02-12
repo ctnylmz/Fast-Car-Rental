@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework.Repository
 {
-    public class EfCustomerDal : EfEntityRepositoryBase<Customer , FastCarRentalContext > , ICustomerDal
+    public class EfColorDal : EfEntityRepositoryBase<Color, FastCarRentalContext>, IColorDal
     {
+    
     }
 }
