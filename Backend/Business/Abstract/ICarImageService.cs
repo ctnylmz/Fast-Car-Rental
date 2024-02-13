@@ -1,4 +1,4 @@
-﻿using Core.Utilities.Results.Abstract;
+﻿using Core.Utilities.Results;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -11,11 +11,11 @@ namespace Business.Abstract
 {
     public interface ICarImageService
     {
-        IResult Add(IFormFile file, CarImage carImage);
-        IResult Delete(CarImage carImage);
-        IResult Update(IFormFile file, CarImage carImage);
-        IDataResult<List<CarImage>> GetAll();
-        IDataResult<CarImage> GetByImageId(int imageId);
-        IDataResult<List<CarImage>> GetByCarId(int carId);
+        Core.Utilities.Results.IResult Add(IFormFile file, CarImage carImage);
+        Core.Utilities.Results.IResult Delete(CarImage carImage);
+        Core.Utilities.Results.IResult Update(IFormFile file, CarImage carImage);
+        Core.Utilities.Results.IDataResult<List<CarImage>> GetAll();
+        Core.Utilities.Results.IDataResult<CarImage> GetByImageId(int imageId);
+        Core.Utilities.Results.IDataResult<List<CarImage>> GetByCarId(int carId);
     }
 }

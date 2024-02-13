@@ -1,13 +1,19 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspect.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
-using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,9 +32,24 @@ namespace Business.Concrete
             _brandService = brandService;
         }
 
+        [SecuredOperation("admin,car.add")]
+        [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarService.Get")]
 
         public IResult Add(Car car)
         {
+            IResult result = BusinessRules.Run(
+                           CheckIfCarCountCategoryCorrect(car.BrandId),
+                           CheckIfCarName(car.Name),
+                           CheckIfBrandLimitExceded()
+                           );
+
+            if (result != null)
+            {
+                return result;
+            }
+
+
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
@@ -40,19 +61,32 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
+        [CacheAspect]
         public IDataResult<Car> GetById(int Id)
         {
             return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == Id), Messages.CarListed);
         }
 
+        [CacheAspect]
         public IDataResult<List<Car>> GetList()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetList().ToList(), Messages.CarsListed);
         }
 
-
+        [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         {
+            IResult result = BusinessRules.Run(
+                  CheckIfCarCountCategoryCorrect(car.BrandId),
+                  CheckIfCarName(car.Name),
+                  CheckIfBrandLimitExceded()
+                  );
+
+            if (result != null)
+            {
+                return result;
+            }
 
             _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdated);
@@ -98,6 +132,11 @@ namespace Business.Concrete
         public DataResult<List<Car>> GetAllByCategoryId(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetList(c => c.BrandId == id).ToList());
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), "Car Listed");
         }
     }
 }

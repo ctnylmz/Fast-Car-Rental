@@ -3,8 +3,6 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Utilities.Helpers;
 using Core.Utilities.Results;
-using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -27,24 +25,24 @@ namespace Business.Concrete
             _fileHelper = fileHelper;
         }
 
-        public IResult Add(IFormFile file, CarImage carImage)
+        public Core.Utilities.Results.IResult Add(IFormFile file, CarImage carImage)
         {
-          
+
             carImage.ImagePath = _fileHelper.Upload(file, PathConstants.ImagePath);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
             return new SuccessResult("Eklendi");
         }
 
-        public IResult Delete(CarImage carImage)
+        public Core.Utilities.Results.IResult Delete(CarImage carImage)
         {
             _fileHelper.Delete(PathConstants.ImagePath + carImage.ImagePath);
             _carImageDal.Delete(carImage);
             return new SuccessResult("Silindi");
         }
 
-    
-        public IResult Update(IFormFile file, CarImage carImage)
+
+        public Core.Utilities.Results.IResult Update(IFormFile file, CarImage carImage)
         {
             carImage.ImagePath = _fileHelper.Update(file, PathConstants.ImagePath + carImage.ImagePath, PathConstants.ImagePath);
             carImage.Date = DateTime.Now;
@@ -64,11 +62,11 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImage>> GetByCarId(int carId)
         {
-          
+
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetList(c => c.CarId == carId).ToList());
         }
 
-        private IResult CheckIfCarImageLimit(int carId)
+        private Core.Utilities.Results.IResult CheckIfCarImageLimit(int carId)
         {
             var result = _carImageDal.GetList(c => c.CarId == carId).Count;
             if (result >= 5)
@@ -95,7 +93,7 @@ namespace Business.Concrete
             }
             return _carImageDal.GetList(c => c.CarId == id).ToList();
         }
-        private IResult CheckCarImageExists(int carId)
+        private Core.Utilities.Results.IResult CheckCarImageExists(int carId)
         {
             var result = _carImageDal.GetList(c => c.CarId == carId).Count;
             if (result > 0)

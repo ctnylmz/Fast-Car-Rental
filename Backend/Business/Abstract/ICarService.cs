@@ -1,6 +1,6 @@
-﻿using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
+﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +17,6 @@ namespace Business.Abstract
         IDataResult<Car> GetById(int id);
         IDataResult<List<Car>> GetList();
         DataResult<List<Car>> GetAllByCategoryId(int id);
+        IDataResult<List<CarDetailDto>> GetCarDetails();
     }
 }

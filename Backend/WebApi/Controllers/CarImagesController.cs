@@ -60,7 +60,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-       
+
         [HttpGet("getbycarid")]
         public ActionResult GetByCarId(int carId)
         {
