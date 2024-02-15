@@ -31,7 +31,8 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/ngx-toastr/toastr.css",
-              "src/styles.css"
+              "./src/assets/css/style.css"
+     
             ],
             "scripts": []
           },
@@ -84,12 +85,10 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.css",
               "./node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+             
             ]
           }
         }

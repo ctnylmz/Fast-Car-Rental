@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CartItem } from '../../../models/cartItem';
+import { CartItem } from '../../models/cartItem';
 import { CartService } from '../../services/cart.service';
-import { Car } from '../../../models/car';
+import { Car } from '../../models/car';
 import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({

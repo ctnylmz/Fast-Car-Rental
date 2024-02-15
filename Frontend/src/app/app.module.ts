@@ -18,6 +18,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { LoginComponent } from './components/login/login.component'; 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,18 +30,19 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     FilterPipePipe,
     CartSummaryComponent,
     CarAddComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
-    })
+    }),
+    FormsModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}

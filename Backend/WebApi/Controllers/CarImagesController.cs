@@ -10,10 +10,12 @@ namespace WebAPI.Controllers
     public class CarImagesController : Controller
     {
         ICarImageService _carImageService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CarImagesController(ICarImageService carImageService)
+        public CarImagesController(ICarImageService carImageService, IWebHostEnvironment webHostEnvironment)
         {
             _carImageService = carImageService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet("getall")]
@@ -71,5 +73,20 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("GetImage")]
+        public IActionResult GetImage(int id)
+        {
+            var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "Uploads", "Images", id + ".jpg");
+            if (!System.IO.File.Exists(imagePath))
+            {
+                return NotFound();
+            }
+
+            var imageBytes = System.IO.File.ReadAllBytes(imagePath);
+            return File(imageBytes, "image/jpeg"); // Resim tipine göre content type ayarlanabilir.
+        }
+
+
     }
 }

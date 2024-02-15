@@ -66,6 +66,11 @@ app.ConfigureCustomExceptionMiddleware();
 
 app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod());
 
+app.UseDefaultFiles();
+
+app.UseStaticFiles();
+
+app.UseRouting();
 
 app.UseHttpsRedirection();
 

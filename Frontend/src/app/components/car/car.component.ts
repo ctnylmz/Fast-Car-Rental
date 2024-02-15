@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from '../../services/car.service';
-import { Car } from '../../../models/car';
+import { Car } from '../../models/car';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart.service';
+import { CarDetail } from '../../models/carDetail';
 
 @Component({
   selector: 'app-car',
@@ -11,9 +12,10 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './car.component.css',
 })
 export class CarComponent implements OnInit {
+  cardetails:CarDetail[]=[];
   cars: Car[] = [];
-
-  filterText = '';
+  baseUrl="https://localhost:7138/Uploads/Images/";
+  filter = '';
 
   constructor(
     private carService: CarService,
@@ -27,7 +29,7 @@ export class CarComponent implements OnInit {
       if (params['id']) {
         this.GetAllByCategoryId(params['id']);
       } else {
-        this.getCars();
+        this.getAllCars();
       }
     });
   }
@@ -48,4 +50,11 @@ export class CarComponent implements OnInit {
     this.toastrService.success('Add To Cart  ', car.name);
     this.cartService.addToCart(car);
   }
+
+  getAllCars() {
+    this.carService.getAllCars().subscribe((response) => {
+      this.cardetails = response.data;
+    });
+  }
+
 }
