@@ -129,14 +129,17 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public DataResult<List<Car>> GetAllByCategoryId(int id)
-        {
-            return new SuccessDataResult<List<Car>>(_carDal.GetList(c => c.BrandId == id).ToList());
-        }
+      
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), "Car Listed");
         }
+
+        public IDataResult<List<CarDetailDto>> GetAllByCategoryId(int id)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.BrandId == id).ToList());
+        }
+      
     }
 }

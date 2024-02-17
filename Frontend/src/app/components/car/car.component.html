@@ -36,26 +36,30 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-4 mb-5">
-            <a href="#">
-              <img
-                src="../../../assets/img/defaultCar.jpg"
-                class="border"
-                alt=""
-              />
+          <div class="col-lg-4 col-md-4 mb-5"  *ngFor="let carDetail of cardetails ">
+              <a href="#" >
+                  <img *ngIf="carDetail.imagePath" src="../../../assets/img/cars/car-1.jpg" alt="">
 
-              <div class="car__item__text">
-                <div class="car__item__text__inner">
-                  <ul></ul>
-                </div>
-                <div class="car__item__price">
-                  <span class="car-option">Detay</span>
-                  <h6><span>/Günlük</span></h6>
-                </div>
-              </div>
-            </a>
+                  <img  *ngIf="!carDetail.imagePath" src="../../../assets/img/defaultCar.jpg" class="border" alt="">
+
+                  <div class="car__item__text">
+                      <div class="car__item__text__inner">
+                          <h5><a href="#">{{ carDetail.carName }}</a></h5>
+                          <ul>
+                              <li><span>{{ carDetail.modelYear }}</span></li>
+                              <li>{{ carDetail.brandName }}</li>
+                              <li>{{ carDetail.colorName }}</li>
+                          </ul>
+                      </div>
+                      <div class="car__item__price">
+                          <span class="car-option">Detay</span>
+                          <h6>{{ carDetail.dailyPrice}}<span>/Günlük</span></h6>
+                      </div> 
+                  </div>
+              </a>
           </div>
-        </div>
+
+      </div>
         <div class="pagination__option">
           <a href="#" class="active">1</a>
           <a href="#">2</a>
