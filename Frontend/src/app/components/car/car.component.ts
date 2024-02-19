@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CarDetail } from '../../models/carDetail';
 import { CarService } from '../../services/car.service';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from '../../models/car';
+import { Category } from '../../models/category';
 
 @Component({
   selector: 'app-car',
@@ -12,6 +13,10 @@ import { Car } from '../../models/car';
 export class CarComponent implements OnInit {
   
   cardetails:CarDetail[] = [];
+  brand: Category[] = [];
+  color: Category[] = [];
+
+  filterText: string = '';
 
   baseUrl="https://localhost:7138/Uploads/Images/";
 
@@ -23,6 +28,8 @@ export class CarComponent implements OnInit {
         this.GetAllByCategoryId(params['id']);
       } else {
         this.getAllCars();
+        this.getBrand();
+        this.getColor();
       }
     });
   }
@@ -38,4 +45,17 @@ export class CarComponent implements OnInit {
       this.cardetails = response.data;
     });
   }
+
+   getBrand() {
+    this.carService.getBrand().subscribe((response) => {
+      this.brand = response.data;
+    });
+  }
+
+  getColor() {
+    this.carService.getColor().subscribe((response) => {
+      this.color = response.data;
+    });
+  }
+ 
 }

@@ -7,21 +7,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
 import { NaviComponent } from './components/navi/navi.component';
-import { CategoryComponent } from './components/category/category.component';
 import { HomeComponent } from './components/home/home.component';
+import { FormsModule } from '@angular/forms';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarComponent,
     NaviComponent,
-    CategoryComponent,
-    HomeComponent
+    HomeComponent,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

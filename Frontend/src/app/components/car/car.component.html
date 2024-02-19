@@ -17,9 +17,36 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <app-category></app-category>
+        <div class="car__sidebar">
+          <div class="car__search">
+            <h5>Araç Ara</h5>
+            <div class="car_form">
+              <input type="text" [(ngModel)]="filterText" placeholder="Araç Ara" />
+              <button ><i class="fa fa-search"></i></button>
+            </div >
+          </div>
+          <div class="car__filter">
+            <h5>Araç Filtre</h5>
+            <form action="#"> 
+        
+              <select class="form-control my-3" >
+                <option selected>Marka Seç</option>
+                <option *ngFor="let category of brand" [value]="category.name">{{ category.name }}</option>
+            </select>
+            
+              <select class="form-control my-3">
+                <option value="">Renk Seç</option>
+                <option *ngFor="let category of color">{{category.name}}</option>
+              </select>
+          
+        
+              <div class="car__filter__btn">
+                <button type="submit" class="site-btn">Reset FIlter</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-
       <div class="col-lg-9">
         <div class="car__filter__option">
           <div class="row justify-content-end">
@@ -32,13 +59,13 @@
                 </select>
               </div>
             </div>
-          </div>
+          </div> 
         </div>
-
+ 
         <div class="row">
-          <div class="col-lg-4 col-md-4 mb-5"  *ngFor="let carDetail of cardetails ">
+          <div class="col-lg-4 col-md-4 mb-5"  *ngFor="let carDetail of cardetails | searchFilter:filterText">
               <a href="#" >
-                  <img *ngIf="carDetail.imagePath" src="../../../assets/img/cars/car-1.jpg" alt="">
+                  <img *ngIf="carDetail.imagePath" src="../../../assets/img/cars/car-1.jpg" alt="" >
 
                   <img  *ngIf="!carDetail.imagePath" src="../../../assets/img/defaultCar.jpg" class="border" alt="">
 
@@ -46,7 +73,7 @@
                       <div class="car__item__text__inner">
                           <h5><a href="#">{{ carDetail.carName }}</a></h5>
                           <ul>
-                              <li><span>{{ carDetail.modelYear }}</span></li>
+                              <li><span>{{ carDetail.modelYear }}</span></li> 
                               <li>{{ carDetail.brandName }}</li>
                               <li>{{ carDetail.colorName }}</li>
                           </ul>
