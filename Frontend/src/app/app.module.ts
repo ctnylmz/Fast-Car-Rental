@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { CarDetialComponent } from './components/car-detial/car-detial.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CarDetialComponent } from './components/car-detial/car-detial.component
     NaviComponent,
     HomeComponent,
     SearchFilterPipe,
-    CarDetialComponent
+    CarDetialComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
