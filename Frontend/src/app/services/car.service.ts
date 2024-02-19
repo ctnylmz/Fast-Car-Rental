@@ -18,16 +18,28 @@ export class CarService {
     return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl + "/Car/getcardetails")
   }
 
-  GetAllByCategoryId(id:number):Observable<ListResponseModel<CarDetail>> {
-    return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl + "/Car/GetAllByCategoryId/"+id);
-  }
-
-  getBrand():Observable<ListResponseModel<Category>> {
+  getAllBrand():Observable<ListResponseModel<Category>> {
     return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl + "/Brand/getall");
   }
 
-  getColor():Observable<ListResponseModel<Category>> {
+  getAllColor():Observable<ListResponseModel<Category>> {
     return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl + "/Color/getall");
   }
 
+  GetByBrandId(id:number):Observable<ListResponseModel<CarDetail>> {
+    return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl + "/Car/GetAllByCategoryId/"+id);
+  }
+
+  GetByColorId(id:number):Observable<ListResponseModel<CarDetail>> {
+    return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl + "/Car/GetAllByColorId/"+id);
+  }
+
+
+  GetCarId(id:number):Observable<ListResponseModel<CarDetail>> {
+    return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl + "/Car/GetCarId/"+id);
+  }
+
+  getCarsByColorAndBrand(brandId:number, colorId:number):Observable<ListResponseModel<CarDetail>> {
+    return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl + "/Car/getCarsByColorAndBrand/"+brandId+"/"+colorId);
+  }
 }

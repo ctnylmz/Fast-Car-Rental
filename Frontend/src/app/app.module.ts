@@ -10,6 +10,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { CarDetialComponent } from './components/car-detial/car-detial.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     NaviComponent,
     HomeComponent,
     SearchFilterPipe,
+    CarDetialComponent
   ],
   imports: [
     BrowserModule,

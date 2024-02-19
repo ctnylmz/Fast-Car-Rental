@@ -9,4 +9,4 @@ export interface CarDetail{
     dailyPrice:number;
     description:string;
     imagePath:string;
-  }
+  } 

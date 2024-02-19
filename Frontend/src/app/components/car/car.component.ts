@@ -11,27 +11,25 @@ import { Category } from '../../models/category';
   styleUrl: './car.component.css',
 })
 export class CarComponent implements OnInit {
-  
-  cardetails:CarDetail[] = [];
+  cardetails: CarDetail[] = [];
   brand: Category[] = [];
   color: Category[] = [];
 
+  brandFilter: number = 0;
+  colorFilter: number = 0;
   filterText: string = '';
 
-  baseUrl="https://localhost:7138/Uploads/Images/";
+  baseUrl = 'https://localhost:7138/Uploads/Images/';
 
-  constructor( private carService: CarService , private activatedRoute: ActivatedRoute,) {}
+  constructor(
+    private carService: CarService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      if (params['id']) {
-        this.GetAllByCategoryId(params['id']);
-      } else {
-        this.getAllCars();
-        this.getBrand();
-        this.getColor();
-      }
-    });
+    this.getAllCars();
+    this.getAllBrand();
+    this.getAllColor();
   }
 
   getAllCars() {
@@ -40,22 +38,45 @@ export class CarComponent implements OnInit {
     });
   }
 
-  GetAllByCategoryId(id: number) {
-    this.carService.GetAllByCategoryId(id).subscribe((response) => {
-      this.cardetails = response.data;
-    });
-  }
-
-   getBrand() {
-    this.carService.getBrand().subscribe((response) => {
+  getAllBrand() {
+    this.carService.getAllBrand().subscribe((response) => {
       this.brand = response.data;
     });
   }
 
-  getColor() {
-    this.carService.getColor().subscribe((response) => {
+  getAllColor() {
+    this.carService.getAllColor().subscribe((response) => {
       this.color = response.data;
     });
   }
- 
+
+  getCarsByColorAndBrand(brandId: number, colorId: number) {
+    if (brandId == 0 && colorId == 0) {
+      this.getAllCars();
+    } else if (brandId != 0 && colorId == 0) {
+      this.getCarsByBrand(brandId);
+    } else if (brandId == 0 && colorId != 0) {
+      this.getCarsByColor(colorId);
+    }else if(brandId != 0 && colorId != 0){
+      this.carService.getCarsByColorAndBrand(brandId,colorId).subscribe((response) => {
+        this.cardetails = response.data;
+      });
+    }
+  }
+
+  getCarsByBrand(id: number) {
+    this.carService.GetByBrandId(id).subscribe((response) => {
+      this.cardetails = response.data;
+    });
+  }
+
+  getCarsByColor(id: number) {
+    this.carService.GetByColorId(id).subscribe((response) => {
+      this.cardetails = response.data;
+    });
+  }
+
+
+
+
 }

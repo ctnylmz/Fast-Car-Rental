@@ -1,5 +1,5 @@
 <!-- Breadcrumb End -->
-<div class="breadcrumb-option set-bg">
+<div class="breadcrumb-option set-bg" [ngStyle]="{'background-image': 'url(../../../assets/img/breadcrumb-bg.jpg)'}">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -27,23 +27,21 @@
           </div>
           <div class="car__filter">
             <h5>Araç Filtre</h5>
-            <form action="#"> 
-        
-              <select class="form-control my-3" >
-                <option selected>Marka Seç</option>
-                <option *ngFor="let category of brand" [value]="category.name">{{ category.name }}</option>
+              <select [(ngModel)]="brandFilter" class="form-control my-3" >
+                <option value="0" selected>Markalar</option>
+                <option *ngFor="let category of brand" [value]="category.id">{{ category.name }}</option>
             </select>
             
-              <select class="form-control my-3">
-                <option value="">Renk Seç</option>
-                <option *ngFor="let category of color">{{category.name}}</option>
+              <select [(ngModel)]="colorFilter" class="form-control my-3">
+                <option value="0" selected>Renkler</option>
+                <option *ngFor="let category of color" [value]="category.id">{{category.name}}</option>
               </select>
           
         
               <div class="car__filter__btn">
-                <button type="submit" class="site-btn">Reset FIlter</button>
+                <button type="submit" (click)="getCarsByColorAndBrand(brandFilter,colorFilter)" class="site-btn">Filtrele</button>
               </div>
-            </form>
+            
           </div>
         </div>
       </div>
@@ -64,14 +62,15 @@
  
         <div class="row">
           <div class="col-lg-4 col-md-4 mb-5"  *ngFor="let carDetail of cardetails | searchFilter:filterText">
-              <a href="#" >
-                  <img *ngIf="carDetail.imagePath" src="../../../assets/img/cars/car-1.jpg" alt="" >
+              <a routerLink="/cars/detial/{{carDetail.carId}}" >
+                
+                  <img *ngIf="carDetail.imagePath" [src]="baseUrl + carDetail.imagePath" alt="" >
 
                   <img  *ngIf="!carDetail.imagePath" src="../../../assets/img/defaultCar.jpg" class="border" alt="">
 
                   <div class="car__item__text">
                       <div class="car__item__text__inner">
-                          <h5><a href="#">{{ carDetail.carName }}</a></h5>
+                          <h5>{{ carDetail.carName }}</h5>
                           <ul>
                               <li><span>{{ carDetail.modelYear }}</span></li> 
                               <li>{{ carDetail.brandName }}</li>
