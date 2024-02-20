@@ -1,9 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { CarDetail } from '../../models/carDetail';
-import { CarService } from '../../services/car.service';
 import { ActivatedRoute } from '@angular/router';
-import { Car } from '../../models/car';
-import { Category } from '../../models/category';
+import { CarDetail } from '../../../models/carDetail';
+import { Category } from '../../../models/category';
+import { CarService } from '../../../services/car.service';
 
 @Component({
   selector: 'app-car',

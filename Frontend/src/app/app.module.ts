@@ -5,15 +5,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarComponent } from './components/car/car.component';
-import { NaviComponent } from './components/navi/navi.component';
-import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
-import { CarDetialComponent } from './components/car-detial/car-detial.component';
-import { CartComponent } from './components/cart/cart.component';
+import { CarComponent } from './components/pages/car/car.component';
+import { NaviComponent } from './components/layouts/navi/navi.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { CarDetialComponent } from './components/pages/car-detial/car-detial.component';
+import { CartComponent } from './components/pages/cart/cart.component';
 
-@NgModule({
+
+@NgModule({ 
   declarations: [
     AppComponent,
     CarComponent,
