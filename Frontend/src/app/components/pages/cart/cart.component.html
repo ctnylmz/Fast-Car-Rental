@@ -26,38 +26,38 @@
                                     <th scope="col" class="text-uppercase header">Sepet</th>
                                     <th scope="col" class="text-uppercase">Marka</th>
                                     <th scope="col" class="text-uppercase">Renk</th>
-                                    <th scope="col" class="text-uppercase">Fiyat / Günlük</th>
+                                    <th scope="col" class="text-uppercase">Fiyat</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let carDetail of cardetails">
+                                <tr *ngFor="let cartItem of cartItems">
                                     <td class="item">
                                         <div class="d-flex align-items-start">
-                                            <img class="" *ngIf="carDetail.imagePath" [src]="baseUrl + carDetail.imagePath"
+                                            <img class="" *ngIf="cartItem.carDetail?.imagePath " [src]="baseUrl + cartItem.carDetail?.imagePath "
                                                 alt="" />
             
-                                            <img *ngIf="!carDetail.imagePath" src="../../../assets/img/defaultCar.jpg"
+                                            <img *ngIf="!cartItem.carDetail?.imagePath " src="../../../assets/img/defaultCar.jpg"
                                                 class="border" alt="" />
                                             <div class="px-4 mt-3">
-                                                {{ carDetail.carName }}
+                                                {{ cartItem.carDetail?.carName }}
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="px-4 mt-3">
-                                            {{ carDetail.brandName }}
+                                            {{ cartItem.carDetail?.brandName }}
                                         </div>
                                     </td>
                                     <td>
                                         <div class="px-4 mt-3">
-                                            {{ carDetail.colorName }}
+                                            {{ cartItem.carDetail?.colorName  }} TL
                                         </div>
                                     </td>
                                     <td class="font-weight-bold">
-                                        <div class="px-4 mt-3">{{ carDetail.dailyPrice }} TL</div>
+                                        <div class="px-4 mt-3">{{ cartItem.carDetail?.dailyPrice  }} TL</div>
                                     </td>
                                     <td>
-                                        <div class="close">&times;</div>
+                                        <div class="close" (click)="cartToDelete(cartItem.carDetail?.carId ?? 0)">&times;</div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -66,12 +66,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4" style="margin-top: 90px;"> 
-            <div class="card shadow text-center" style="height: 200px;">
-                <div class="card-body ">
-                    <button  class="btn btn-primary w-100  mt-5">Daha Et</button>
-                </div>
-            </div>
+
+        <div class="col-md-4" style="margin-top: 82px;"> 
+            <div class="summary">
+                <h3>Sipaiş Özeti</h3>
+                <div class="summary-item d-flex justify-content-between mt-4"><span class="text">Toplam Kiralanan Araç Sayısı</span><span class="price">{{cartItems.length}}</span></div>
+                <hr class="mt-4" /> 
+                <div  class="summary-item d-flex justify-content-between mt-4"><span class="text">Ödenecek Tutar</span><span class="price">{{ totalFilter }} TL</span></div>
+                <button type="button" class="btn btn-success btn-lg btn-block mt-5">Siparişi Onayla</button>
+              </div>
         </div>
     </div>
 </div>
