@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.EntityFramework.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-HK3Q21E;database=FastCarRentalDB;integrated security=true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-Q7UMMPP\\SQLEXPRESS;database=FastCarRentalDB;integrated security=true");
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Color> Colors { get; set; }

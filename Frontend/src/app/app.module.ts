@@ -16,6 +16,7 @@ import { CarDetialComponent } from './components/pages/car-detial/car-detial.com
 import { CartComponent } from './components/pages/cart/cart.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({ 
@@ -36,7 +37,8 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
-    })
+    }),
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
