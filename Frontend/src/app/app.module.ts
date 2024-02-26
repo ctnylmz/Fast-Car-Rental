@@ -17,6 +17,7 @@ import { CartComponent } from './components/pages/cart/cart.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { AdminModule } from './admin/admin.module';
+import { LoginComponent } from './components/pages/login/login.component';
 
 
 @NgModule({ 
@@ -27,7 +28,8 @@ import { AdminModule } from './admin/admin.module';
     HomeComponent,
     SearchFilterPipe,
     CarDetialComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { CarDetialComponent } from './components/pages/car-detial/car-detial.com
 import { CartComponent } from './components/pages/cart/cart.component';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { AdminHomeComponent } from './admin/components/admin-home/admin-home.component';
+import { LoginComponent } from './components/pages/login/login.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,9 @@ const routes: Routes = [
   },{
     path: 'cart',
     component: CartComponent,
+  },{
+    path: 'login',
+    component: LoginComponent,
   },
   
  
