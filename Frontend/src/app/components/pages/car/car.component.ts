@@ -14,7 +14,7 @@ export class CarComponent implements OnInit {
   brand: Category[] = [];
   color: Category[] = [];
 
-  brandFilter: number = 0;
+  brandFilter: number = 0; 
   colorFilter: number = 0;
   filterText: string = '';
 
