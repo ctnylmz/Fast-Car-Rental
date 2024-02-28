@@ -1,45 +1,50 @@
-<div class="container-fluid">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="text-center mb-2">Araç Ekle</h4>
-            
-            <form  [formGroup]="carAddForm">  
-                <div class="row mb-2">
-                    <div class="col-12"> 
+<div class="container">
+    <div class="row mb-2">
+        <div class="col-9 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center mb-2">Araç Ekle</h4>
+
+                    <form [formGroup]="carAddForm">
                         <div class="mb-2">
                             <label>Marka Id</label>
-                            <input type="number" id="brandId" formControlName="brandId" class="form-control"/>
+                            <input type="number" id="brandId" formControlName="brandId" class="form-control" />
                         </div>
-                         <div class="mb-2">
+                        <div class="mb-2">
                             <label>Color Id</label>
-                            <input type="number" id="colorId" formControlName="colorId" class="form-control"/>
+                            <input type="number" id="colorId" formControlName="colorId" class="form-control" />
                         </div>
                         <div class="mb-2">
                             <label>Name</label>
-                            <input type="text" id="name" formControlName="name" class="form-control"/>
+                            <input type="text" id="name" formControlName="name" class="form-control" />
                         </div>
                         <div class="mb-2">
                             <label>Yıl</label>
-                            <input type="text" id="modelYear" formControlName="modelYear" class="form-control"/>
+                            <input type="text" id="modelYear" formControlName="modelYear" class="form-control" />
                         </div>
                         <div class="mb-2">
                             <label>Fiyat</label>
-                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control"/>
+                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" />
                         </div>
                         <div class="mb-2">
                             <label>Açıklama</label>
-                            <textarea type="text" rows="6" id="Description"  formControlName="Description" class="form-control"></textarea>
+                            <textarea type="text" rows="6" id="Description" formControlName="Description"
+                                class="form-control"></textarea>
                         </div>
-                    </div>
-                </div> 
-
-                <div class="d-flex justify-content-between">
-                    <button class="btn btn-danger w-50 mt-2 mr-2" routerLink="admin">Turn Back</button>
-                    <button type="submit" class="btn btn-primary w-50 mt-2 ml-2" (click)="add()">
-                        Create
-                    </button>
+                        <div class="d-flex justify-content-between">
+                            <a routerLink="/admin" class="btn btn-danger w-50 mt-2 mr-2" >
+                                Geri Dön
+                            </a>
+    
+                            <button type="submit" class="btn btn-primary w-50 mt-2 ml-2" (click)="add()">
+                                Araç Ekle
+                            </button>
+                        </div>
+                    </form>
+                 
                 </div>
-            </form>
+            </div>
+            
         </div>
     </div>
 </div>

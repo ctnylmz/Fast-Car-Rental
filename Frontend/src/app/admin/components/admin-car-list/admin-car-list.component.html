@@ -1,0 +1,74 @@
+<div class="col-md-12 mx-auto">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Araçlar</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Araba İsmi</th>
+                                        <th>Marka</th>
+                                        <th>Renk</th>
+                                        <th>Yıl</th>
+                                        <th>Fiyat</th>
+                                        <th>Ayarlar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody> 
+                                    <tr *ngFor="let carDetail of cardetails" class="border">
+                                        <td class="w-25">
+                                            <img *ngIf="carDetail.imagePath" [src]="baseUrl + carDetail.imagePath" alt=""
+                                                class="w-25" />
+
+                                            <img *ngIf="!carDetail.imagePath" src="../../../../assets/img/defaultCar.jpg"
+                                                class="border w-25" alt="" />
+                                        </td>
+
+                                        <td>
+                                            <h6>{{carDetail.carName}}</h6>
+                                        </td>
+
+                                        <td>
+                                            <h6>{{carDetail.brandName}}</h6>
+                                        </td>
+
+                                        <td>
+                                            <h6>{{carDetail.colorName}}</h6>
+                                        </td>
+
+                                        <td>
+                                            <h6>{{carDetail.modelYear}}</h6>
+                                        </td>
+
+                                        <td>
+                                            <h6>{{carDetail.dailyPrice}}</h6>
+                                        </td>
+
+                                        <td>
+                                            <a class="btn btn-danger mx-4" href="/Admin/Certificate/Delete/@item.Id">Sil</a>
+                                            <a class="btn btn-success" href="/Admin/Certificate/Update/@item.Id">Güncelle</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+    </div>
+    <!-- End of Content Wrapper -->
+</div>

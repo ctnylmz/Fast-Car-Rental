@@ -8,6 +8,7 @@ import { LayoutComponent } from './admin/layout/layout.component';
 import { AdminHomeComponent } from './admin/components/admin-home/admin-home.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { AdminCarAddedComponent } from './admin/components/admin-car-added/admin-car-added.component';
+import { AdminCarListComponent } from './admin/components/admin-car-list/admin-car-list.component';
 
 const routes: Routes = [
   {
@@ -19,9 +20,12 @@ const routes: Routes = [
         component: AdminHomeComponent,
       },
       {
+        path: 'cars',
+        component: AdminCarListComponent,
+      },{
         path: 'cars/add',
         component: AdminCarAddedComponent,
-      },
+      }
     ],
   },
   
