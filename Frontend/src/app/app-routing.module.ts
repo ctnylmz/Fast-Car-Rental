@@ -9,6 +9,8 @@ import { AdminHomeComponent } from './admin/components/admin-home/admin-home.com
 import { LoginComponent } from './components/pages/login/login.component';
 import { AdminCarAddedComponent } from './admin/components/admin-car-added/admin-car-added.component';
 import { AdminCarListComponent } from './admin/components/admin-car-list/admin-car-list.component';
+import { LoginGuard } from './guards/login.guard';
+import { AuthLoginGuard } from './guards/auth-login.guard';
 
 const routes: Routes = [
   {
@@ -17,13 +19,17 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        canActivate:[LoginGuard],
         component: AdminHomeComponent,
       },
       {
         path: 'cars',
+        canActivate:[LoginGuard],
+
         component: AdminCarListComponent,
       },{
         path: 'cars/add',
+        canActivate:[LoginGuard],
         component: AdminCarAddedComponent,
       }
     ],
@@ -51,6 +57,7 @@ const routes: Routes = [
   },{
     path: 'login',
     component: LoginComponent,
+    canActivate:[AuthLoginGuard],
   },
   
  

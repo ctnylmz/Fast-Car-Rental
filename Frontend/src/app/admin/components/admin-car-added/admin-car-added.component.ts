@@ -20,7 +20,7 @@ export class AdminCarAddedComponent implements OnInit {
   createCarAddForm() {
     this.carAddForm = this.formBuilder.group({
       brandId: ["", Validators.required],
-      colorId: ["", Validators.required], // Renk Id'si "colordId" değil, "colorId" olmalı
+      ColordId: ["", Validators.required], 
       name: ["", Validators.required],
       modelYear: ["", Validators.required],
       dailyPrice: ["", Validators.required],
@@ -36,8 +36,11 @@ export class AdminCarAddedComponent implements OnInit {
       }, responseError => {
         if (responseError.error.message && responseError.error.message.length > 0) {
         this.toastrService.error(responseError.error.message, "Doğrulama Hatası")
-       }else{
+       }else if(responseError.error.Errors[0] && responseError.error.Errors[0] > 0){
         this.toastrService.error(responseError.error.Errors[0].ErrorMessage, "Doğrulama Hatası")
+      }else{
+      this.toastrService.error("Formunuz Eksik", "Dikkat")
+
       }
        
       });
