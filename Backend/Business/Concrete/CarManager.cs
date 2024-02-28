@@ -32,10 +32,10 @@ namespace Business.Concrete
             _brandService = brandService;
         }
 
-        [SecuredOperation("admin,car.add")]
+        //[SecuredOperation("admin,car.add")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("ICarService.Get")]
-
+         
         public IResult Add(Car car)
         {
             IResult result = BusinessRules.Run(
@@ -129,8 +129,8 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-      
 
+     
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), "Car Listed");

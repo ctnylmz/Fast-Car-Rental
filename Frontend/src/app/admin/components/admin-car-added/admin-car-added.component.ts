@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CarService } from '../../../services/car.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-car-added',
   templateUrl: './admin-car-added.component.html',
   styleUrl: './admin-car-added.component.css'
 })
-export class AdminCarAddedComponent implements OnInit{
+export class AdminCarAddedComponent implements OnInit {
   carAddForm: FormGroup = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private carService: CarService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.createCarAddForm();
@@ -26,8 +28,23 @@ export class AdminCarAddedComponent implements OnInit{
     });
   }
 
-  add(){
-   let carModel = Object.assign({},this.carAddForm.value)
+  add() {
+    if (this.carAddForm.valid) {
+      let carModel = Object.assign({}, this.carAddForm.value)
+      this.carService.create(carModel).subscribe(data => {
+        this.toastrService.success("Ürün Eklendi", "Başarılı")
+      }, responseError => {
+        if (responseError.error.message && responseError.error.message.length > 0) {
+        this.toastrService.error(responseError.error.message, "Doğrulama Hatası")
+       }else{
+        this.toastrService.error(responseError.error.Errors[0].ErrorMessage, "Doğrulama Hatası")
+      }
+       
+      });
+
+    } else {
+      this.toastrService.error("Formunuz Eksik", "Dikkat")
+    }
   }
 
 }
