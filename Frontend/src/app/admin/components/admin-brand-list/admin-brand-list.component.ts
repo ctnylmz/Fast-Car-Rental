@@ -29,7 +29,7 @@ export class AdminBrandListComponent implements OnInit{
   }
 
   delete(brand:Category) {
-    this.brandService.delete(brand);
+    this.brandService.delete(brand); 
   }
   
   

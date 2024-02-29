@@ -18,10 +18,13 @@ export class ColorService {
     return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl + "/Color/getall")
   }
 
-  delete(brand: Category) {
-    this.httpClient.post<ResponseModel>(this.apiUrl + "/Brand/delete", brand).subscribe(
+  create(color:Category):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "/Color/add",color)
+  }
+
+  delete(color: Category) {
+    this.httpClient.post<ResponseModel>(this.apiUrl + "/Color/delete", color).subscribe(
       (response) => {
-        this.toastrService.success(response.message);
         window.location.reload();
       },
       (errorResponse) =>this.toastrService.success("Hata oluştu")

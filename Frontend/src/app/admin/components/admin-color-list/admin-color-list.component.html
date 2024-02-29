@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <button class="btn btn-primary w-100 mb-4">Yeni Renk Ekle</button>
+                            <button class="btn btn-primary w-100 mb-4" routerLink="/admin/color/add">Yeni Renk Ekle</button>
 
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -35,7 +35,7 @@
                                         </td>
 
                                         <td>
-                                            <a class="btn btn-danger mx-4" href="/Admin/Certificate/Delete/@item.Id">Sil</a>
+                                            <button class="btn btn-danger mx-4" (click)="delete(color)">Sil</button>
                                             <a class="btn btn-success" href="/Admin/Certificate/Update/@item.Id">Güncelle</a>
                                         </td>
                                     </tr>

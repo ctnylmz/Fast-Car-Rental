@@ -7,6 +7,7 @@ import { AdminCarListModule } from './admin-car-list/admin-car-list.module';
 import { AdminBrandListModule } from './admin-brand-list/admin-brand-list.module';
 import { AdminColorListModule } from './admin-color-list/admin-color-list.module';
 import { AdminBrandAddModule } from './admin-brand-add/admin-brand-add.module';
+import { AdminColorAddModule } from './admin-color-add/admin-color-add.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AdminBrandAddModule } from './admin-brand-add/admin-brand-add.module';
     AdminCarListModule,
     AdminBrandListModule,
     AdminColorListModule,
-    AdminBrandAddModule
+    AdminBrandAddModule,
+    AdminColorAddModule
     
     
   ]

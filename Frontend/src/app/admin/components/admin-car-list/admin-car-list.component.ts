@@ -24,4 +24,6 @@ export class AdminCarListComponent implements OnInit{
       this.cardetails = response.data;
     });
   }
+
+  
 }

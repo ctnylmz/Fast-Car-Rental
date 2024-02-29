@@ -14,6 +14,7 @@ import { AuthLoginGuard } from './guards/auth-login.guard';
 import { AdminBrandListComponent } from './admin/components/admin-brand-list/admin-brand-list.component';
 import { AdminColorListComponent } from './admin/components/admin-color-list/admin-color-list.component';
 import { AdminBrandAddComponent } from './admin/components/admin-brand-add/admin-brand-add.component';
+import { AdminColorAddComponent } from './admin/components/admin-color-add/admin-color-add.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,11 @@ const routes: Routes = [
         path: 'color',
         canActivate: [LoginGuard],
         component: AdminColorListComponent,
+      },
+      {
+        path: 'color/add',
+        canActivate: [LoginGuard],
+        component: AdminColorAddComponent,
       },
       {
         path: 'cars',

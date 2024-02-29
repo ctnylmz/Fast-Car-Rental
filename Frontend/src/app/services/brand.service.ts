@@ -30,5 +30,5 @@ export class BrandService {
       (errorResponse) =>this.toastrService.success("Hata oluştu")
     );
   }
-}
+} 
  
