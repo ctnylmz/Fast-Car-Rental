@@ -42,7 +42,7 @@ export class AdminCarAddedComponent implements OnInit {
       this.toastrService.error("Formunuz Eksik", "Dikkat")
 
       }
-       
+        
       });
 
     } else {

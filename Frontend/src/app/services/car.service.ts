@@ -8,7 +8,7 @@ import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class CarService {
 
   apiUrl = 'https://localhost:7138';

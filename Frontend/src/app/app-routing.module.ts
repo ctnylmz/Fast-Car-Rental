@@ -11,6 +11,9 @@ import { AdminCarAddedComponent } from './admin/components/admin-car-added/admin
 import { AdminCarListComponent } from './admin/components/admin-car-list/admin-car-list.component';
 import { LoginGuard } from './guards/login.guard';
 import { AuthLoginGuard } from './guards/auth-login.guard';
+import { AdminBrandListComponent } from './admin/components/admin-brand-list/admin-brand-list.component';
+import { AdminColorListComponent } from './admin/components/admin-color-list/admin-color-list.component';
+import { AdminBrandAddComponent } from './admin/components/admin-brand-add/admin-brand-add.component';
 
 const routes: Routes = [
   {
@@ -19,22 +22,37 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        canActivate:[LoginGuard],
+        canActivate: [LoginGuard],
         component: AdminHomeComponent,
       },
       {
+        path: 'brand',
+        canActivate: [LoginGuard],
+        component: AdminBrandListComponent,
+      },
+      {
+        path: 'brand/add',
+        canActivate: [LoginGuard],
+        component: AdminBrandAddComponent,
+      },
+      {
+        path: 'color',
+        canActivate: [LoginGuard],
+        component: AdminColorListComponent,
+      },
+      {
         path: 'cars',
-        canActivate:[LoginGuard],
-
+        canActivate: [LoginGuard],
         component: AdminCarListComponent,
-      },{
+      },
+      {
         path: 'cars/add',
-        canActivate:[LoginGuard],
+        canActivate: [LoginGuard],
         component: AdminCarAddedComponent,
-      }
+      },
     ],
   },
-  
+
   {
     path: '',
     pathMatch: 'full',
@@ -51,21 +69,20 @@ const routes: Routes = [
   {
     path: 'cars/detial/:id',
     component: CarDetialComponent,
-  },{
+  },
+  {
     path: 'cart',
     component: CartComponent,
-  },{
+  },
+  {
     path: 'login',
     component: LoginComponent,
-    canActivate:[AuthLoginGuard],
+    canActivate: [AuthLoginGuard],
   },
-  
- 
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

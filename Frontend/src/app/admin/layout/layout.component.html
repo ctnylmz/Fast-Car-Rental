@@ -47,16 +47,32 @@
             <!-- Heading -->
 
             <!-- Nav Item - Pages Collapse Menu -->
+
             <li class="nav-item">
-                <a class="nav-link collapsed" routerLink="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                <a class="nav-link " routerLink="brand">
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    <span>Markalar</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " routerLink="color">
+                    <i class="fa fa-bullseye" aria-hidden="true"></i>
+                    <span>Renkler</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" routerLink="#" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                    <i class="fa fa-car" aria-hidden="true"></i>
                     <span>Araçlar</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" routerLink="/admin/cars">Listele</a>
                         <a class="collapse-item" routerLink="/admin/cars/add">Ekle</a>
+                        <a class="collapse-item" routerLink="/admin/cars/add">Resim Ekle</a>
+                        <a class="collapse-item" routerLink="/admin/cars">Listele</a>
                     </div>
                 </div>
             </li>
@@ -91,8 +107,8 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="" >
-                                <span  class="mr-2 d-none d-lg-inline text-gray-600 small">Siteye Dön</span>
+                            <a class="nav-link dropdown-toggle" href="">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Siteye Dön</span>
                             </a>
                         </li>
 
@@ -102,13 +118,14 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.firstName }} {{
+                                    user.lastName }}</span>
                                 <img class="img-profile rounded-circle" src="/assets/admin/img/undraw_profile.svg" />
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                              
+
                                 <button class="dropdown-item" (click)="logout()">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Çıkış Yap

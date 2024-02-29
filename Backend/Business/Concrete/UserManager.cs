@@ -1,6 +1,10 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Entities.Concrete;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework.Repository;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +35,11 @@ namespace Business.Concrete
         public User GetByMail(string email)
         {
             return _userDal.Get(u => u.Email == email);
+        }
+
+        public IDataResult<User> GetById(int id)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Id == id));
         }
     }
 }

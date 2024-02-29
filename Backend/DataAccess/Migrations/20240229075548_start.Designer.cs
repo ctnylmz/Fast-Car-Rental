@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(FastCarRentalContext))]
-    [Migration("20240226063836_Start")]
-    partial class Start
+    [Migration("20240229075548_start")]
+    partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class AuthService {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "/api/Auth/login",login)
   }
 
+  getUserById(userId:number):Observable<SingleResponseModel<User>>{
+    return this.httpClient.get<SingleResponseModel<User>>(this.apiUrl + "/api/Auth/userId/" + userId);
+  }
+  
   isAuthenticated() {
     if (localStorage.getItem('token')) {
       return true;
@@ -37,4 +42,6 @@ export class AuthService {
       window.location.reload();
   }, 1);
   }
+
+
 }
