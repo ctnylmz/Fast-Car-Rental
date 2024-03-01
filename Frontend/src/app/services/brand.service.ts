@@ -5,6 +5,8 @@ import { ListResponseModel } from '../models/listResponseModel';
 import { Observable } from 'rxjs';
 import { ResponseModel } from '../models/responseModel';
 import { ToastrService } from 'ngx-toastr';
+import { CarDetail } from '../models/carDetail';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({ 
   providedIn: 'root'
@@ -30,5 +32,14 @@ export class BrandService {
       (errorResponse) =>this.toastrService.success("Hata oluştu")
     );
   }
+
+  GetBrandId(id:number):Observable<SingleResponseModel<Category>> {
+    return this.httpClient.get<SingleResponseModel<Category>>(this.apiUrl + "/Brand/GetById/"+id);
+  }
+
+  update(brand: Category) {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "/Brand/update",brand)
+  }
+
 } 
  

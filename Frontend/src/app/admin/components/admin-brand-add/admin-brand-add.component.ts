@@ -14,7 +14,7 @@ export class AdminBrandAddComponent implements OnInit{
 
   constructor(private formBuilder: FormBuilder, private brandService: BrandService, private toastrService: ToastrService,private router:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.createCarAddForm();
   }
 
@@ -23,7 +23,7 @@ export class AdminBrandAddComponent implements OnInit{
       name: ["", Validators.required],
     });
   }
-
+ 
   add() {
     if (this.brandAddForm.valid) {
       let brandModel = Object.assign({}, this.brandAddForm.value)

@@ -15,6 +15,8 @@ import { AdminBrandListComponent } from './admin/components/admin-brand-list/adm
 import { AdminColorListComponent } from './admin/components/admin-color-list/admin-color-list.component';
 import { AdminBrandAddComponent } from './admin/components/admin-brand-add/admin-brand-add.component';
 import { AdminColorAddComponent } from './admin/components/admin-color-add/admin-color-add.component';
+import { AdminBrandUpdatedComponent } from './admin/components/admin-brand-updated/admin-brand-updated.component';
+import { AdminColorUpdatedComponent } from './admin/components/admin-color-updated/admin-color-updated.component';
 
 const routes: Routes = [
   {
@@ -37,6 +39,11 @@ const routes: Routes = [
         component: AdminBrandAddComponent,
       },
       {
+        path: 'brand/update/:id',
+        canActivate: [LoginGuard],
+        component: AdminBrandUpdatedComponent,
+      },
+      {
         path: 'color',
         canActivate: [LoginGuard],
         component: AdminColorListComponent,
@@ -45,6 +52,11 @@ const routes: Routes = [
         path: 'color/add',
         canActivate: [LoginGuard],
         component: AdminColorAddComponent,
+      },
+      {
+        path: 'color/update/:id',
+        canActivate: [LoginGuard],
+        component: AdminColorUpdatedComponent,
       },
       {
         path: 'cars',

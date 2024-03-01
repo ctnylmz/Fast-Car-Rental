@@ -5,6 +5,7 @@ import { ListResponseModel } from '../models/listResponseModel';
 import { Observable } from 'rxjs';
 import { ResponseModel } from '../models/responseModel';
 import { ToastrService } from 'ngx-toastr';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,13 @@ export class ColorService {
       },
       (errorResponse) =>this.toastrService.success("Hata oluştu")
     );
+  }
+
+  GetColorId(id:number):Observable<SingleResponseModel<Category>> {
+    return this.httpClient.get<SingleResponseModel<Category>>(this.apiUrl + "/Color/GetById/"+id);
+  }
+
+  update(color: Category) {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "/Color/update",color)
   }
 }

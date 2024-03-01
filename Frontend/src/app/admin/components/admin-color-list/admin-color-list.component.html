@@ -36,7 +36,7 @@
 
                                         <td>
                                             <button class="btn btn-danger mx-4" (click)="delete(color)">Sil</button>
-                                            <a class="btn btn-success" href="/Admin/Certificate/Update/@item.Id">Güncelle</a>
+                                            <a class="btn btn-success" routerLink="update/{{color.id}}">Güncelle</a>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -31,6 +31,8 @@ export class AdminBrandListComponent implements OnInit{
   delete(brand:Category) {
     this.brandService.delete(brand); 
   }
-  
+  getByIdFromInMemory(id: number): Category {
+    return this.brands.filter((c) => c.id === id)[0];
+  }
   
 }

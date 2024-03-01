@@ -40,16 +40,18 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetList().ToList(), Messages.BrandsListed);
         }
 
-        public IDataResult<Brand> GetById(int Id)
-        {
-            return new SuccessDataResult<Brand>(_brandDal.Get(b => b.Id == Id), Messages.BrandListed);
-        }
+      
 
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
 
             return new SuccessResult(Messages.BrandDeleted);
+        }
+
+        public IDataResult<Brand> GetById(int Id)
+        {
+            return new SuccessDataResult<Brand>(_brandDal.Get(c => c.Id == Id), Messages.CarListed);
         }
     }
 }

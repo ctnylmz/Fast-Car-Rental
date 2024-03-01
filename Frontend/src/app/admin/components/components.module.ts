@@ -8,6 +8,8 @@ import { AdminBrandListModule } from './admin-brand-list/admin-brand-list.module
 import { AdminColorListModule } from './admin-color-list/admin-color-list.module';
 import { AdminBrandAddModule } from './admin-brand-add/admin-brand-add.module';
 import { AdminColorAddModule } from './admin-color-add/admin-color-add.module';
+import { AdminBrandUpdatedModule } from './admin-brand-updated/admin-brand-updated.module';
+import { AdminColorUpdatedModule } from './admin-color-updated/admin-color-updated.module';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { AdminColorAddModule } from './admin-color-add/admin-color-add.module';
     AdminBrandListModule,
     AdminColorListModule,
     AdminBrandAddModule,
-    AdminColorAddModule
+    AdminColorAddModule,
+    AdminBrandUpdatedModule,
+    AdminColorUpdatedModule,
     
     
   ]
