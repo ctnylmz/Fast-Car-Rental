@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ListResponseModel } from '../models/listResponseModel';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { CarDetail } from '../models/carDetail';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Category } from '../models/category';
 import { ResponseModel } from '../models/responseModel';
 
@@ -45,5 +45,24 @@ export class CarService {
   }
   create(carDetail:CarDetail):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "/Car/add",carDetail)
+  }
+
+  GetNullImage():Observable<ListResponseModel<CarDetail>> {
+    return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl + "/Car/GetNullImage");
+  }
+  
+ 
+
+
+  addImage(carId: number, file: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('carId', carId.toString());
+    formData.append('file', file, file.name);
+
+    return this.httpClient.post(`${this.apiUrl}/api/CarImages/add`, formData).pipe(
+      catchError(error => {
+        return throwError(error); // Hata durumunda hatayı yeniden fırlat
+      })
+    );
   }
 }

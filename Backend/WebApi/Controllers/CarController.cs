@@ -93,5 +93,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("GetNullImage")]
+        public IActionResult GetNullImage()
+        {
+            var result = _carService.GetNullImage();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

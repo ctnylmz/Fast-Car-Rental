@@ -30,7 +30,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     SearchFilterPipe,
     CarDetialComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     FormsModule,

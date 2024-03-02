@@ -10,6 +10,10 @@ import { AdminBrandAddModule } from './admin-brand-add/admin-brand-add.module';
 import { AdminColorAddModule } from './admin-color-add/admin-color-add.module';
 import { AdminBrandUpdatedModule } from './admin-brand-updated/admin-brand-updated.module';
 import { AdminColorUpdatedModule } from './admin-color-updated/admin-color-updated.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { AdminCarAddImageModule } from './admin-car-add-image/admin-car-add-image.module';
+import { AdminCarListImageComponent } from './admin-car-list-image/admin-car-list-image.component';
+import { AdminCarListImageModule } from './admin-car-list-image/admin-car-list-image.module';
 
 
 @NgModule({
@@ -19,6 +23,7 @@ import { AdminColorUpdatedModule } from './admin-color-updated/admin-color-updat
   imports: [
     CommonModule,
     FormsModule,
+    BrowserModule,
     ReactiveFormsModule,
     AdminHomeModule,
     AdminCarAddedModule,
@@ -29,6 +34,8 @@ import { AdminColorUpdatedModule } from './admin-color-updated/admin-color-updat
     AdminColorAddModule,
     AdminBrandUpdatedModule,
     AdminColorUpdatedModule,
+    AdminCarAddImageModule,
+    AdminCarListImageModule
     
     
   ]

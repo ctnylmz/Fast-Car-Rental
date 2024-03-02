@@ -156,5 +156,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.BrandId == brandId && c.ColorId == colorId).ToList());
         }
+
+        public IDataResult<List<CarDetailDto>> GetNullImage()
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ImagePath == null).ToList());
+        }
     }
 }
