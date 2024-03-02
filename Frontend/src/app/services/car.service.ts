@@ -5,6 +5,7 @@ import { CarDetail } from '../models/carDetail';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Category } from '../models/category';
 import { ResponseModel } from '../models/responseModel';
+import { Car } from '../models/car';
 
 @Injectable({
   providedIn: 'root'
@@ -62,5 +63,13 @@ export class CarService {
         return throwError(error); // Hata durumunda hatayı yeniden fırlat
       })
     );
+  }
+
+  update(Cars: CarDetail) {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "/Car/update",Cars)
+  }
+
+  delete(Cars: Car) {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "/Car/Delete",Cars)
   }
 }

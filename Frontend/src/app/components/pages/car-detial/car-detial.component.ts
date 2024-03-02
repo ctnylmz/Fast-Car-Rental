@@ -9,7 +9,7 @@ import { CartService } from '../../../services/cart.service';
   selector: 'app-car-detial',
   templateUrl: './car-detial.component.html',
   styleUrl: './car-detial.component.css',
-})
+}) 
 export class CarDetialComponent implements OnInit {
   cardetails: CarDetail[] = [];
 

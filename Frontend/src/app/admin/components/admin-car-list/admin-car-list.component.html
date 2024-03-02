@@ -56,8 +56,8 @@
                                         </td>
 
                                         <td>
-                                            <button class="btn btn-danger mx-4" href="/Admin/Certificate/Delete/@item.Id"  >Sil</button>
-                                            <a class="btn btn-success" href="/Admin/Certificate/Update/@item.Id">Güncelle</a>
+                                            <button class="btn btn-danger mx-4" (click)="Delete(carDetail)">Sil</button>
+                                            <a class="btn btn-success" routerLink="/admin/cars/update/{{carDetail.carId}}">Güncelle</a>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -10,11 +10,15 @@ import { Category } from '../../../models/category';
   templateUrl: './admin-brand-updated.component.html',
   styleUrl: './admin-brand-updated.component.css'
 })
-export class AdminBrandUpdatedComponent implements OnInit{
+export class AdminBrandUpdatedComponent implements OnInit{ 
   brandUpdateForm: FormGroup = new FormGroup({});
   brands!: Category;
   
-  constructor(private formBuilder: FormBuilder,  private activatedRoute: ActivatedRoute, private brandService: BrandService, private toastrService: ToastrService,private router:Router) { }
+  constructor(private formBuilder: FormBuilder,  
+    private activatedRoute: ActivatedRoute, 
+    private brandService: BrandService, 
+    private toastrService: ToastrService,
+    private router:Router) { }
   
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {

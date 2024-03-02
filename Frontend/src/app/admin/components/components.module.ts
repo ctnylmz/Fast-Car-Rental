@@ -14,6 +14,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AdminCarAddImageModule } from './admin-car-add-image/admin-car-add-image.module';
 import { AdminCarListImageComponent } from './admin-car-list-image/admin-car-list-image.component';
 import { AdminCarListImageModule } from './admin-car-list-image/admin-car-list-image.module';
+import { AdminCarUpdatedComponent } from './admin-car-updated/admin-car-updated.component';
+import { AdminCarUpdatedModule } from './admin-car-updated/admin-car-updated.module';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { AdminCarListImageModule } from './admin-car-list-image/admin-car-list-i
     AdminBrandUpdatedModule,
     AdminColorUpdatedModule,
     AdminCarAddImageModule,
-    AdminCarListImageModule
+    AdminCarListImageModule,
+    AdminCarUpdatedModule
     
     
   ]
