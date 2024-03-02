@@ -159,7 +159,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> GetNullImage()
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ImagePath == null).ToList());
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ImagePath == null || c.ImagePath == "null").ToList());
         }
     }
 }

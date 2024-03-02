@@ -52,8 +52,6 @@ export class CarService {
   }
   
  
-
-
   addImage(carId: number, file: File): Observable<any> {
     const formData: FormData = new FormData();
     formData.append('carId', carId.toString());
