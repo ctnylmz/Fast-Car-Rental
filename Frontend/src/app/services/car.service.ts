@@ -78,4 +78,8 @@ export class CarService {
     return this.httpClient.get<ListResponseModel<carOperation>>(this.apiUrl + "/Car/GetDefaultCars/"+email);
   }
 
+  AddDefaultCars(CarOperation: carOperation) {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "/Car/AddDefaultCars",CarOperation)
+  }
+
 }

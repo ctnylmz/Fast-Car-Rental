@@ -73,7 +73,7 @@
                 <div class="summary-item d-flex justify-content-between mt-4"><span class="text">Toplam Kiralanan Araç Sayısı</span><span class="price">{{cartItems.length}}</span></div>
                 <hr class="mt-4" /> 
                 <div  class="summary-item d-flex justify-content-between mt-4"><span class="text">Ödenecek Tutar</span><span class="price">{{ totalFilter }} TL</span></div>
-                <button type="button" class="btn btn-success btn-lg btn-block mt-5" routerLink="/admin">Siparişi Onayla</button>
+                <button type="button" class="btn btn-success btn-lg btn-block mt-5" (click)="cartAdd()">Siparişi Onayla</button>
               </div>
         </div>
     </div>

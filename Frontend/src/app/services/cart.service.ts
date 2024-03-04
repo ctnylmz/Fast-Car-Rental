@@ -11,20 +11,18 @@ export class CartService {
 
   constructor( private toastrService:ToastrService) { }
 
-  addToCart(carDetail:CarDetail){
-    let item = CartItems.find(c=>c.carDetail?.carId === carDetail.carId);
-    if(item){
-      this.toastrService.error("Sepete Eklenmedi En Fazla 1 Araba",carDetail.carName)
-    }else{
+  addToCart(carDetail: CarDetail) {
+    if (CartItems.length === 1) {
+      this.toastrService.error("Sepette zaten bir araba var. Lütfen önce mevcut arabayı kaldırın.");
+    } else {
       let cartItem = new CartItem();
       cartItem.quuantity = 1;
       cartItem.carDetail = carDetail;
-      CartItems.push(cartItem)
-
-     this.toastrService.success("Sepete Eklendi",carDetail.carName)
-
+      CartItems.push(cartItem);
+      this.toastrService.success("Sepete Eklendi", carDetail.carName);
     }
   }
+  
 
   listToCart(){
     return CartItems;

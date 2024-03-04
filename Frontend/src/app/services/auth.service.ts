@@ -45,6 +45,8 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
+
     this.router.navigate(['']);
     setTimeout(() => {
       window.location.reload();

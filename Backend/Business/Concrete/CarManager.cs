@@ -167,5 +167,12 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarOperation>>(_carOperationDal.GetList(c => c.Email == Email).ToList());
         }
+
+        public IResult AddDefaultCars(CarOperation carOperation)
+        {
+
+            _carOperationDal.Add(carOperation);
+            return new SuccessResult("Başarılı");
+        }
     }
 }

@@ -137,5 +137,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpPost("AddDefaultCars")]
+        public IActionResult AddDefaultCars(CarOperation carOperation)
+        {
+            var result = _carService.AddDefaultCars(carOperation);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

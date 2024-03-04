@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarDetail } from '../../../models/carDetail';
 import { CarService } from '../../../services/car.service';
 import { CartItem } from '../../../models/cartItem';
 import { CartService } from '../../../services/cart.service';
 import { CartItems } from '../../../models/cartItems';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -23,10 +24,13 @@ export class CartComponent implements OnInit{
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
     private cartService: CartService,
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
   
   ngOnInit(): void {
     this.cartToList();
+    this.isAuthenticated();
   }
 
   cartToList(): void {
@@ -45,6 +49,33 @@ export class CartComponent implements OnInit{
       this.totalFilter -= item.carDetail.dailyPrice;
     }
   }
+
+  isAuthenticated() {
+    if (localStorage.getItem('token')) {
+    } else {
+      this.router.navigate(['admin']);
+    }
+  }
   
+  cartAdd() {
+    const email = localStorage.getItem('email');
+    const carId = this.cartItems[0].carDetail?.carId;
+
+    const carOperation = {
+      email: email,
+      carId: carId
+    };
+
+    this.carService.AddDefaultCars(carOperation).subscribe(
+      data => {
+        this.toastrService.success("Araç Satın Alındı", "Başarılı");
+        this.router.navigate(['/admin']);
+      },
+      error => {
+        this.toastrService.error(error, "Hata");
+      }
+    );
+}
+
 
 }
