@@ -6,6 +6,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { Category } from '../models/category';
 import { ResponseModel } from '../models/responseModel';
 import { Car } from '../models/car';
+import { carOperation } from '../models/carOperation';
 
 @Injectable({
   providedIn: 'root'
@@ -72,4 +73,9 @@ export class CarService {
   delete(Cars: Car) {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "/Car/Delete",Cars)
   }
+  
+  GetDefaultCars(email:string):Observable<ListResponseModel<carOperation>> {
+    return this.httpClient.get<ListResponseModel<carOperation>>(this.apiUrl + "/Car/GetDefaultCars/"+email);
+  }
+
 }

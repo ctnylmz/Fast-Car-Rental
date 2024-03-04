@@ -126,5 +126,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("GetDefaultCars/{Email}")]
+        public IActionResult GetDefaultCars(string Email)
+        {
+            var result = _carService.GetCarOperation(Email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

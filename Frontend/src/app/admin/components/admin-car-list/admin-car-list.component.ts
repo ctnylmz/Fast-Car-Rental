@@ -15,7 +15,7 @@ export class AdminCarListComponent implements OnInit {
   cars!: Car;
   baseUrl = 'https://localhost:7138/Uploads/Images/';
 
-  constructor(
+  constructor( 
     private carService: CarService,
     private toastrService: ToastrService,
     private router:Router

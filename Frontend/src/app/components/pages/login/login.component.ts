@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
         (res) => {
           this.toastrService.info(res.message);
           localStorage.setItem('token', res.data.token);
+          localStorage.setItem('email', loginModel.email);
           this.router.navigate(['admin']);
         },
         (resError) => {

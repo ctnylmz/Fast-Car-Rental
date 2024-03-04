@@ -1,0 +1,25 @@
+<!-- Car Section Begin -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 mx-auto">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 my-5"  *ngFor="let carDetail of cardetails">
+                            <img *ngIf="carDetail.imagePath" [src]="baseUrl + carDetail.imagePath" alt="" >
+          
+                            <img  *ngIf="!carDetail.imagePath" src="../../../assets/img/defaultCar.jpg" class="border" alt="">
+          
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <h6>{{ carDetail.carName }}</h6>
+                                    <ul>
+                                        <li><span>{{ carDetail.modelYear }}</span></li> 
+                                        <li>{{ carDetail.brandName }}</li>
+                                        <li>{{ carDetail.colorName }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

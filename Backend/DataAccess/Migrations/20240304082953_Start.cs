@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class start : Migration
+    public partial class Start : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,6 +35,20 @@ namespace DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CarImages", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CarOperations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    carId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CarOperations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -121,6 +135,9 @@ namespace DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "CarImages");
+
+            migrationBuilder.DropTable(
+                name: "CarOperations");
 
             migrationBuilder.DropTable(
                 name: "Cars");

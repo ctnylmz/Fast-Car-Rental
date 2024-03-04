@@ -20,7 +20,7 @@ export class AdminColorListComponent implements OnInit{
       this.colors = response.data;
     });
   }
-
+ 
   delete(color:Category) {
     this.colorService.delete(color); 
   }

@@ -22,5 +22,7 @@ namespace Business.Abstract
         IDataResult<List<CarDetailDto>> GetCarDetails();
         IDataResult<List<CarDetailDto>> GetNullImage();
         IDataResult<List<CarDetailDto>> GetCarId(int id);
+        IDataResult<List<CarOperation>> GetCarOperation(string Email);
+
     }
 }

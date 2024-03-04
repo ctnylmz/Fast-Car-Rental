@@ -16,10 +16,14 @@ namespace Business.Concrete
     public class UserManager : IUserService
     {
         IUserDal _userDal;
+        IUserOperationClaimDal _useroperationClaimDal;
+        IOperationClaimDal _operationClaimDal;
 
-        public UserManager(IUserDal userDal)
+        public UserManager(IUserDal userDal, IUserOperationClaimDal useroperationClaimDal, IOperationClaimDal operationClaimDal)
         {
             _userDal = userDal;
+            _useroperationClaimDal = useroperationClaimDal;
+            _operationClaimDal = operationClaimDal;
         }
 
         public List<OperationClaim> GetClaims(User user)
@@ -41,5 +45,23 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<User>(_userDal.Get(u => u.Id == id));
         }
+        public IDataResult<User> GetByEmail(string email)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));
+
+        }
+
+
+        public IDataResult<OperationClaim> GetByOperationClaimIName(int id)
+        {
+            var result = (_useroperationClaimDal.Get(u => u.UserId == id));
+
+            var role = (_operationClaimDal.Get(u => u.Id == result.OperationClaimId));
+
+
+            return new SuccessDataResult<OperationClaim>(role);
+        }
+
+      
     }
 }

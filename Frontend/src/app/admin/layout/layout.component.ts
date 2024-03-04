@@ -11,7 +11,8 @@ import { User } from '../../models/user';
   styleUrl: './layout.component.css',
 })
 export class LayoutComponent implements OnInit {
-  user!:User
+  user!: User;
+  role: string | null = '';
 
   constructor(
     private authService: AuthService,
@@ -20,21 +21,24 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      this.getUserById();
+    this.getUserById();
   }
 
-  getUserById(){
-    this.authService.getUserById(1)
-      .subscribe(response=>{
-        this.user = response.data
-        localStorage.setItem("userName",this.user.firstName+" "+this.user.lastName)
-     });
+  getUserById() {
+    const email = localStorage.getItem('email');
+    this.authService.getEmail(email || '').subscribe((response) => {
+      this.user = response.data;
+
+      this.authService
+        .GetByOperationClaimId(this.user.id)
+        .subscribe((response) => {
+          localStorage.setItem('Role', response.data.name);
+          this.role = response.data.name;
+        });
+    });
   }
-  
+
   logout() {
     this.authService.logout();
   }
-
-
 }
-

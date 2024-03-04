@@ -56,10 +56,21 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("userId/{id}")]
-        public IActionResult GetById(int id)
+        [HttpGet("Email")]
+        public IActionResult GetByMail(string email)
         {
-            var result = _userService.GetById(id);
+            var result = _userService.GetByEmail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("GetByOperationClaimId/{id}")]
+        public IActionResult GetByOperationClaimId(int id)
+        {
+            var result = _userService.GetByOperationClaimIName(id);
             if (result.Success)
             {
                 return Ok(result);

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(FastCarRentalContext))]
-    [Migration("20240229075548_start")]
-    partial class start
+    [Migration("20240304082953_Start")]
+    partial class Start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -167,6 +167,26 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CarImages");
+                });
+
+            modelBuilder.Entity("Entities.Concrete.CarOperation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("carId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CarOperations");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Color", b =>

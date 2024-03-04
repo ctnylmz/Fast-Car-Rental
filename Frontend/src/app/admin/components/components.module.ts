@@ -16,6 +16,7 @@ import { AdminCarListImageComponent } from './admin-car-list-image/admin-car-lis
 import { AdminCarListImageModule } from './admin-car-list-image/admin-car-list-image.module';
 import { AdminCarUpdatedComponent } from './admin-car-updated/admin-car-updated.component';
 import { AdminCarUpdatedModule } from './admin-car-updated/admin-car-updated.module';
+import { AdminDefaultListModule } from './admin-default-list/admin-default-list.module';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { AdminCarUpdatedModule } from './admin-car-updated/admin-car-updated.mod
     AdminColorUpdatedModule,
     AdminCarAddImageModule,
     AdminCarListImageModule,
-    AdminCarUpdatedModule
+    AdminCarUpdatedModule,
+    AdminDefaultListModule
     
     
   ]

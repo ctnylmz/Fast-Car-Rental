@@ -23,13 +23,14 @@ namespace Business.Concrete
     {
 
         ICarDal _carDal;
-
         IBrandService _brandService;
+        ICarOperationDal _carOperationDal;
 
-        public CarManager(ICarDal carDal, IBrandService brandService)
+        public CarManager(ICarDal carDal, IBrandService brandService, ICarOperationDal carOperationDal)
         {
             _carDal = carDal;
             _brandService = brandService;
+            _carOperationDal = carOperationDal;
         }
 
         [SecuredOperation("admin,car.add")]
@@ -160,6 +161,11 @@ namespace Business.Concrete
         public IDataResult<List<CarDetailDto>> GetNullImage()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ImagePath == null || c.ImagePath == "null").ToList());
+        }
+
+        public IDataResult<List<CarOperation>> GetCarOperation(string Email)
+        {
+            return new SuccessDataResult<List<CarOperation>>(_carOperationDal.GetList(c => c.Email == Email).ToList());
         }
     }
 }

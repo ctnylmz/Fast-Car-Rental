@@ -20,6 +20,7 @@ import { AdminColorUpdatedComponent } from './admin/components/admin-color-updat
 import { AdminCarAddImageComponent } from './admin/components/admin-car-add-image/admin-car-add-image.component';
 import { AdminCarListImageComponent } from './admin/components/admin-car-list-image/admin-car-list-image.component';
 import { AdminCarUpdatedComponent } from './admin/components/admin-car-updated/admin-car-updated.component';
+import { AdminDefaultListComponent } from './admin/components/admin-default-list/admin-default-list.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,11 @@ const routes: Routes = [
         path: 'cars/Listimage',
         canActivate: [LoginGuard],
         component: AdminCarListImageComponent,
+      },
+      {
+        path: 'default',
+        canActivate: [LoginGuard],
+        component: AdminDefaultListComponent,
       },
       {
         path: 'cars/Addimage/:id',

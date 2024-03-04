@@ -8,6 +8,8 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/user';
+import { ListResponseModel } from '../models/listResponseModel';
+import { Category } from '../models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +28,13 @@ export class AuthService {
   getUserById(userId:number):Observable<SingleResponseModel<User>>{
     return this.httpClient.get<SingleResponseModel<User>>(this.apiUrl + "/api/Auth/userId/" + userId);
   }
-  
+
+  getEmail(email: string): Observable<SingleResponseModel<User>> {
+    return this.httpClient.get<SingleResponseModel<User>>(`https://localhost:7138/api/Auth/Email?email=${email}`);
+  }
+  GetByOperationClaimId(id:number):Observable<SingleResponseModel<Category>> {
+    return this.httpClient.get<SingleResponseModel<Category>>(this.apiUrl + "/api/Auth/GetByOperationClaimId/"+id);
+  }
   isAuthenticated() {
     if (localStorage.getItem('token')) {
       return true;
